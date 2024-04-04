@@ -47,7 +47,7 @@ const CharacterList: React.FunctionComponent<
         title="Press me"
         onPress={() => navigation.push('CharacterDetail', {id: 2})}
       />
-      <Text>"Character List"</Text>
+      <Text>"Fav List"</Text>
       <Text>{JSON.stringify(data)}</Text>
     </SafeAreaView>
   );
