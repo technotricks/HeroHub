@@ -25,8 +25,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
-import HomeScreen from './Screens/CharacterList';
-import {client} from './Apollo';
+import HomeScreen from '@/screens/CharacterList';
+import {client} from '@/apollo';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
