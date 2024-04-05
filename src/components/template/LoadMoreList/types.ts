@@ -6,6 +6,6 @@ export namespace ILoadMore {
     items: Character[];
     isLoading: Boolean;
     onPress: ItemClickCallback;
-    handleLoadMore: LoadMoreCallback;
+    handleLoadMore?: LoadMoreCallback;
   };
 }

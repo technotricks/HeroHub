@@ -38,9 +38,7 @@ export type GetCharactersData = {
 
 // Create a TypeScript type for the query result
 export type GetCharacterData = {
-  characters: {
-    results: CharacterDetail[];
-  };
+  character: CharacterDetail;
 };
 
 export type FetchCharacters = (page: number) => void;
