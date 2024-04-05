@@ -1,7 +1,7 @@
 import type {StackScreenProps} from '@react-navigation/stack';
 
 export type ApplicationStackParamList = {
-  TabNavigator: undefined;
+  MainTab: undefined;
   CharacterList: undefined;
   CharacterDetail: {id: number};
   FavouriteList: undefined;
