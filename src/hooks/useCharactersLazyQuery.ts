@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react';
 import {GET_CHARACTERS_QUERY} from '@/apollo/query';
 import {FetchCharacters, GetCharactersData} from '@/types/character';
 // Create a custom hook to fetch characters data lazily
-function useLazyGetCharacters(): [
+function useCharactersLazyQuery(): [
   FetchCharacters,
   QueryResult<GetCharactersData | undefined>,
 ] {
@@ -36,4 +36,4 @@ function useLazyGetCharacters(): [
   ];
 }
 
-export default useLazyGetCharacters;
+export default useCharactersLazyQuery;

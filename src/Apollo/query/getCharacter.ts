@@ -1,6 +1,6 @@
-import {gql} from '@apollo/client';
+import {DocumentNode, gql} from '@apollo/client';
 
-export const GET_CHARACTER = gql`
+const GET_CHARACTER_QUERY_STRING = `
   query Character($characterId: ID!) {
     character(id: $characterId) {
       id
@@ -21,3 +21,7 @@ export const GET_CHARACTER = gql`
     }
   }
 `;
+
+export const GET_CHARACTER_QUERY: DocumentNode = gql(
+  GET_CHARACTER_QUERY_STRING,
+);
