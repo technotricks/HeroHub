@@ -18,7 +18,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import {GET_CHARACTERS, GET_CHARACTER} from '@/apollo/query';
+import {GET_CHARACTERS_QUERY, GET_CHARACTER} from '@/apollo/query';
 
 function HomeScreen(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -27,7 +27,7 @@ function HomeScreen(): React.JSX.Element {
   //     characterId: 801,
   //   },
   // });
-  const {loading, error, data} = useQuery(GET_CHARACTERS, {
+  const {loading, error, data} = useQuery(GET_CHARACTERS_QUERY, {
     variables: {
       page: 1,
     },

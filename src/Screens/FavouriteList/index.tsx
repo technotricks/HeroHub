@@ -18,7 +18,6 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import {GET_CHARACTERS, GET_CHARACTER} from '@/apollo/query';
 import {ApplicationScreenProps} from '@/types/navigation';
 
 const CharacterList: React.FunctionComponent<
@@ -28,11 +27,6 @@ const CharacterList: React.FunctionComponent<
 
   const isDarkMode = useColorScheme() === 'dark';
 
-  const {loading, error, data} = useQuery(GET_CHARACTERS, {
-    variables: {
-      page: 1,
-    },
-  });
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -48,7 +42,6 @@ const CharacterList: React.FunctionComponent<
         onPress={() => navigation.push('CharacterDetail', {id: 2})}
       />
       <Text>"Fav List"</Text>
-      <Text>{JSON.stringify(data)}</Text>
     </SafeAreaView>
   );
 };
