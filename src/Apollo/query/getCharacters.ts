@@ -1,6 +1,6 @@
-import {gql} from '@apollo/client';
+import {DocumentNode, gql} from '@apollo/client';
 
-export const GET_CHARACTERS = gql`
+const GET_CHARACTERS_QUERY_STRING = `
   query Characters($page: Int) {
     characters(page: $page) {
       results {
@@ -20,3 +20,7 @@ export const GET_CHARACTERS = gql`
     }
   }
 `;
+
+export const GET_CHARACTERS_QUERY: DocumentNode = gql(
+  GET_CHARACTERS_QUERY_STRING,
+);
