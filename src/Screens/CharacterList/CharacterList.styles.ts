@@ -1,13 +1,21 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  background-color: #4b6c8d;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100%;
+  flex: 1;
+  /* align-items: center;
+  justify-content: center;
+  background-color: red;
+  height: 100%; */
 `;
+
+// export const Container = styled.View`
+//   background-color: #4b6c8d;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: flex-start;
+//   align-items: center;
+//   height: 100%;
+// `;
 
 export const Middle = styled.View`
   flex: 1;
@@ -37,4 +45,23 @@ export const TopText = styled.Text`
   font-size: 20px;
   color: #434343;
   margin-bottom: 10px;
+`;
+
+export const ItemContainer = styled.View`
+  flex: 1;
+  padding: 10px;
+  margin: 5px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  elevation: 5;
+`;
+
+export const ItemImage = styled.Image`
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+`;
+
+export const ItemText = styled.Text`
+  font-size: 16px;
 `;

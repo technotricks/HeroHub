@@ -16,15 +16,20 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       initialRouteName="CharacterList"
-      activeColor="#e91e63"
-      barStyle={{backgroundColor: 'tomato'}}>
+      activeColor="#2CB9B0"
+      inactiveColor="#FE5E33"
+      barStyle={{backgroundColor: '#111747'}}>
       <Tab.Screen
         name="CharacterList"
         component={CharacterList}
         options={{
           tabBarLabel: 'Characters',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+            <MaterialCommunityIcons
+              name="format-columns"
+              color={color}
+              size={26}
+            />
           ),
         }}
       />
@@ -34,7 +39,7 @@ const TabNavigator = () => {
         options={{
           tabBarLabel: 'Favourite Characters',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+            <MaterialCommunityIcons name="heart" color={color} size={26} />
           ),
         }}
       />

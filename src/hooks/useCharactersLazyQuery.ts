@@ -1,4 +1,4 @@
-import {QueryHookOptions, QueryResult, Variables} from '@/types/appllo';
+import {QueryHookOptions, QueryResult, Variables} from '@/types/apollo';
 import {useLazyQuery, DocumentNode} from '@apollo/client';
 import {useEffect, useState} from 'react';
 import {GET_CHARACTERS_QUERY} from '@/apollo/query';
