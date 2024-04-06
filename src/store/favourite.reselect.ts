@@ -24,5 +24,5 @@ const _getFavCharacter = customSelectorCreator(
   },
 );
 
-export const getFavCharacter = (id: number) =>
+export const isFavCharacter = (id: number) =>
   useTypedSelector(state => _getFavCharacter(state, id));
