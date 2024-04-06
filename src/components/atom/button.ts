@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
 
-export const CharacterImageSmall = styled.Image`
-  width: 100%;
-  height: 100px;
-  border-radius: 10px;
+export const ButtonContainer = styled.TouchableOpacity<{bgColor?: string}>`
+  background-color: ${({bgColor}) => bgColor ?? '#412545'};
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px;
 `;
