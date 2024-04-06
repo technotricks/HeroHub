@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorView component should render correctly snapshot 1`] = `
+<RCTSafeAreaView
+  style={
+    {
+      "flexBasis": 0,
+      "flexGrow": 1,
+      "flexShrink": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <ActivityIndicator
+      color="red"
+      size="large"
+    />
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`LoadingView component should render correctly snapshot 1`] = `
+<RCTSafeAreaView
+  style={
+    {
+      "flexBasis": 0,
+      "flexGrow": 1,
+      "flexShrink": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <ActivityIndicator
+      color="red"
+      size="large"
+    />
+  </View>
+</RCTSafeAreaView>
+`;

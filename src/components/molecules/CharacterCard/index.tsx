@@ -9,13 +9,19 @@ import {CardProps} from './types';
 
 const CharacterCard: React.FC<CardProps> = ({item, onPress}) => (
   <ItemContainer>
-    <TouchableOpacity onPress={() => onPress(item)}>
-      <CharacterImageSmall source={{uri: item.image}} />
-      <HText color="#FF87A2" aligin="center" isBold fontSize="18px">
+    <TouchableOpacity testID="buttonID" onPress={() => onPress(item)}>
+      <CharacterImageSmall testID="imageID" source={{uri: item.image}} />
+      <HText
+        testID="nameID"
+        color="#FF87A2"
+        aligin="center"
+        isBold
+        fontSize="18px">
         {item.name}
       </HText>
 
       <HText
+        testID="statusID"
         color={item?.status == 'Alive' ? '#2CB9B0' : '#FF3600'}
         aligin="left"
         isBold

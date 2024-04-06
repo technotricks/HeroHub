@@ -1,0 +1,256 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertiesView component should render correctly snapshot 1`] = `
+[
+  <View
+    style={
+      {
+        "borderBottomColor": "#ccc",
+        "borderBottomWidth": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "paddingBottom": 10,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "paddingTop": 10,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "transparent",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text
+        aligin="center"
+        color="#0C0D34"
+        fontSize="20px"
+        isBold={true}
+        style={
+          {
+            "color": "#0C0D34",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+      >
+        Properties
+      </Text>
+    </View>
+  </View>,
+  <View
+    bgColor="#FFE4D9"
+    style={
+      {
+        "backgroundColor": "#FFE4D9",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "paddingBottom": 10,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "paddingTop": 10,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "transparent",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text
+        aligin="center"
+        color="#0C0D34"
+        fontSize="14px"
+        style={
+          {
+            "color": "#0C0D34",
+            "fontSize": 14,
+            "fontWeight": "normal",
+            "textAlign": "center",
+          }
+        }
+      >
+        Gender
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "transparent",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text
+        aligin="center"
+        color="#0C0D34"
+        fontSize="14px"
+        style={
+          {
+            "color": "#0C0D34",
+            "fontSize": 14,
+            "fontWeight": "normal",
+            "textAlign": "center",
+          }
+        }
+      >
+        Male
+      </Text>
+    </View>
+  </View>,
+  <View
+    bgColor="#E8FFFA"
+    style={
+      {
+        "backgroundColor": "#E8FFFA",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "paddingBottom": 10,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "paddingTop": 10,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "transparent",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text
+        aligin="center"
+        color="#0C0D34"
+        fontSize="14px"
+        style={
+          {
+            "color": "#0C0D34",
+            "fontSize": 14,
+            "fontWeight": "normal",
+            "textAlign": "center",
+          }
+        }
+      >
+        Origin
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "transparent",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text
+        aligin="center"
+        color="#0C0D34"
+        fontSize="14px"
+        style={
+          {
+            "color": "#0C0D34",
+            "fontSize": 14,
+            "fontWeight": "normal",
+            "textAlign": "center",
+          }
+        }
+      >
+        Earth (C-137)
+      </Text>
+    </View>
+  </View>,
+  <View
+    bgColor="#FFE4D9"
+    style={
+      {
+        "backgroundColor": "#FFE4D9",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "paddingBottom": 10,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "paddingTop": 10,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "transparent",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text
+        aligin="center"
+        color="#0C0D34"
+        fontSize="14px"
+        style={
+          {
+            "color": "#0C0D34",
+            "fontSize": 14,
+            "fontWeight": "normal",
+            "textAlign": "center",
+          }
+        }
+      >
+        Location
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "transparent",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text
+        aligin="center"
+        color="#0C0D34"
+        fontSize="14px"
+        style={
+          {
+            "color": "#0C0D34",
+            "fontSize": 14,
+            "fontWeight": "normal",
+            "textAlign": "center",
+          }
+        }
+      >
+        Citadel of Ricks
+      </Text>
+    </View>
+  </View>,
+]
+`;

@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Episode component should render correctly snapshot 1`] = `
+[
+  <View
+    style={
+      {
+        "borderBottomColor": "#ccc",
+        "borderBottomWidth": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "paddingBottom": 10,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "paddingTop": 10,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "transparent",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text
+        aligin="center"
+        color="#0C0D34"
+        fontSize="20px"
+        isBold={true}
+        style={
+          {
+            "color": "#0C0D34",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+      >
+        Episodes
+      </Text>
+    </View>
+  </View>,
+  <View
+    bgColor="#E8FFFA"
+    style={
+      {
+        "backgroundColor": "#E8FFFA",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "paddingBottom": 10,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "paddingTop": 10,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "transparent",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text
+        aligin="center"
+        color="#0C0D34"
+        fontSize="14px"
+        style={
+          {
+            "color": "#0C0D34",
+            "fontSize": 14,
+            "fontWeight": "normal",
+            "textAlign": "center",
+          }
+        }
+      >
+        S01E01
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "transparent",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text
+        aligin="left"
+        color="#0C0D34"
+        fontSize="14px"
+        style={
+          {
+            "color": "#0C0D34",
+            "fontSize": 14,
+            "fontWeight": "normal",
+            "textAlign": "left",
+          }
+        }
+      >
+        Pilot
+      </Text>
+    </View>
+  </View>,
+  <View
+    bgColor="#FFE4D9"
+    style={
+      {
+        "backgroundColor": "#FFE4D9",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "paddingBottom": 10,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "paddingTop": 10,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "transparent",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text
+        aligin="center"
+        color="#0C0D34"
+        fontSize="14px"
+        style={
+          {
+            "color": "#0C0D34",
+            "fontSize": 14,
+            "fontWeight": "normal",
+            "textAlign": "center",
+          }
+        }
+      >
+        S01E02
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "transparent",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Text
+        aligin="left"
+        color="#0C0D34"
+        fontSize="14px"
+        style={
+          {
+            "color": "#0C0D34",
+            "fontSize": 14,
+            "fontWeight": "normal",
+            "textAlign": "left",
+          }
+        }
+      >
+        Lawnmower Dog
+      </Text>
+    </View>
+  </View>,
+]
+`;
+
+exports[`Episode component should render correctly snapshot empty eposodes 1`] = `
+<View
+  style={
+    {
+      "borderBottomColor": "#ccc",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "paddingBottom": 10,
+      "paddingLeft": 10,
+      "paddingRight": 10,
+      "paddingTop": 10,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "backgroundColor": "transparent",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "textAlign": "center",
+      }
+    }
+  >
+    <Text
+      aligin="center"
+      color="#0C0D34"
+      fontSize="20px"
+      isBold={true}
+      style={
+        {
+          "color": "#0C0D34",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "textAlign": "center",
+        }
+      }
+    >
+      No Episodes found
+    </Text>
+  </View>
+</View>
+`;

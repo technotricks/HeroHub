@@ -1,0 +1,855 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadMoreView component should render correctly snapshot 1`] = `
+<RCTScrollView
+  ListFooterComponent={
+    <ActivityIndicator
+      color="red"
+      size="large"
+    />
+  }
+  data={
+    [
+      {
+        "gender": "Male",
+        "id": 1,
+        "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+        "name": "Rick Sanchez",
+        "status": "Alive",
+        "type": "",
+      },
+      {
+        "gender": "Male",
+        "id": 2,
+        "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        "name": "Morty Smith",
+        "status": "Alive",
+        "type": "",
+      },
+      {
+        "gender": "Female",
+        "id": 3,
+        "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+        "name": "Summer Smith",
+        "status": "Alive",
+        "type": "",
+      },
+    ]
+  }
+  getItem={[Function]}
+  getItemCount={[Function]}
+  keyExtractor={[Function]}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={0.1}
+  onLayout={[Function]}
+  onMomentumScrollBegin={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={0.0001}
+  stickyHeaderIndices={[]}
+  viewabilityConfigCallbackPairs={[]}
+>
+  <View>
+    <View
+      onFocusCapture={[Function]}
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#ffffff",
+              "borderBottomLeftRadius": 10,
+              "borderBottomRightRadius": 10,
+              "borderTopLeftRadius": 10,
+              "borderTopRightRadius": 10,
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "marginBottom": 5,
+              "marginLeft": 5,
+              "marginRight": 5,
+              "marginTop": 5,
+              "paddingBottom": 10,
+              "paddingLeft": 10,
+              "paddingRight": 10,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+            testID="buttonID"
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+                }
+              }
+              style={
+                {
+                  "borderBottomLeftRadius": 10,
+                  "borderBottomRightRadius": 10,
+                  "borderTopLeftRadius": 10,
+                  "borderTopRightRadius": 10,
+                  "height": 100,
+                  "width": "100%",
+                }
+              }
+              testID="imageID"
+            />
+            <Text
+              aligin="center"
+              color="#FF87A2"
+              fontSize="18px"
+              isBold={true}
+              style={
+                {
+                  "color": "#FF87A2",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "textAlign": "center",
+                }
+              }
+              testID="nameID"
+            >
+              Rick Sanchez
+            </Text>
+            <Text
+              aligin="left"
+              color="#2CB9B0"
+              fontSize="16px"
+              isBold={true}
+              style={
+                {
+                  "color": "#2CB9B0",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "textAlign": "left",
+                }
+              }
+              testID="statusID"
+            >
+              Alive
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "backgroundColor": "#ffffff",
+              "borderBottomLeftRadius": 10,
+              "borderBottomRightRadius": 10,
+              "borderTopLeftRadius": 10,
+              "borderTopRightRadius": 10,
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "marginBottom": 5,
+              "marginLeft": 5,
+              "marginRight": 5,
+              "marginTop": 5,
+              "paddingBottom": 10,
+              "paddingLeft": 10,
+              "paddingRight": 10,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+            testID="buttonID"
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+                }
+              }
+              style={
+                {
+                  "borderBottomLeftRadius": 10,
+                  "borderBottomRightRadius": 10,
+                  "borderTopLeftRadius": 10,
+                  "borderTopRightRadius": 10,
+                  "height": 100,
+                  "width": "100%",
+                }
+              }
+              testID="imageID"
+            />
+            <Text
+              aligin="center"
+              color="#FF87A2"
+              fontSize="18px"
+              isBold={true}
+              style={
+                {
+                  "color": "#FF87A2",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "textAlign": "center",
+                }
+              }
+              testID="nameID"
+            >
+              Morty Smith
+            </Text>
+            <Text
+              aligin="left"
+              color="#2CB9B0"
+              fontSize="16px"
+              isBold={true}
+              style={
+                {
+                  "color": "#2CB9B0",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "textAlign": "left",
+                }
+              }
+              testID="statusID"
+            >
+              Alive
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      onFocusCapture={[Function]}
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#ffffff",
+              "borderBottomLeftRadius": 10,
+              "borderBottomRightRadius": 10,
+              "borderTopLeftRadius": 10,
+              "borderTopRightRadius": 10,
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "marginBottom": 5,
+              "marginLeft": 5,
+              "marginRight": 5,
+              "marginTop": 5,
+              "paddingBottom": 10,
+              "paddingLeft": 10,
+              "paddingRight": 10,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+            testID="buttonID"
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+                }
+              }
+              style={
+                {
+                  "borderBottomLeftRadius": 10,
+                  "borderBottomRightRadius": 10,
+                  "borderTopLeftRadius": 10,
+                  "borderTopRightRadius": 10,
+                  "height": 100,
+                  "width": "100%",
+                }
+              }
+              testID="imageID"
+            />
+            <Text
+              aligin="center"
+              color="#FF87A2"
+              fontSize="18px"
+              isBold={true}
+              style={
+                {
+                  "color": "#FF87A2",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "textAlign": "center",
+                }
+              }
+              testID="nameID"
+            >
+              Summer Smith
+            </Text>
+            <Text
+              aligin="left"
+              color="#2CB9B0"
+              fontSize="16px"
+              isBold={true}
+              style={
+                {
+                  "color": "#2CB9B0",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "textAlign": "left",
+                }
+              }
+              testID="statusID"
+            >
+              Alive
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+    >
+      <ActivityIndicator
+        color="red"
+        size="large"
+      />
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`PropertiesView component should render correctly snapshot 1`] = `
+<RCTScrollView
+  ListFooterComponent={
+    <ActivityIndicator
+      color="red"
+      size="large"
+    />
+  }
+  data={
+    [
+      {
+        "gender": "Male",
+        "id": 1,
+        "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+        "name": "Rick Sanchez",
+        "status": "Alive",
+        "type": "",
+      },
+      {
+        "gender": "Male",
+        "id": 2,
+        "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        "name": "Morty Smith",
+        "status": "Alive",
+        "type": "",
+      },
+      {
+        "gender": "Female",
+        "id": 3,
+        "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+        "name": "Summer Smith",
+        "status": "Alive",
+        "type": "",
+      },
+    ]
+  }
+  getItem={[Function]}
+  getItemCount={[Function]}
+  keyExtractor={[Function]}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={0.1}
+  onLayout={[Function]}
+  onMomentumScrollBegin={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={0.0001}
+  stickyHeaderIndices={[]}
+  viewabilityConfigCallbackPairs={[]}
+>
+  <View>
+    <View
+      onFocusCapture={[Function]}
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#ffffff",
+              "borderBottomLeftRadius": 10,
+              "borderBottomRightRadius": 10,
+              "borderTopLeftRadius": 10,
+              "borderTopRightRadius": 10,
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "marginBottom": 5,
+              "marginLeft": 5,
+              "marginRight": 5,
+              "marginTop": 5,
+              "paddingBottom": 10,
+              "paddingLeft": 10,
+              "paddingRight": 10,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+            testID="buttonID"
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+                }
+              }
+              style={
+                {
+                  "borderBottomLeftRadius": 10,
+                  "borderBottomRightRadius": 10,
+                  "borderTopLeftRadius": 10,
+                  "borderTopRightRadius": 10,
+                  "height": 100,
+                  "width": "100%",
+                }
+              }
+              testID="imageID"
+            />
+            <Text
+              aligin="center"
+              color="#FF87A2"
+              fontSize="18px"
+              isBold={true}
+              style={
+                {
+                  "color": "#FF87A2",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "textAlign": "center",
+                }
+              }
+              testID="nameID"
+            >
+              Rick Sanchez
+            </Text>
+            <Text
+              aligin="left"
+              color="#2CB9B0"
+              fontSize="16px"
+              isBold={true}
+              style={
+                {
+                  "color": "#2CB9B0",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "textAlign": "left",
+                }
+              }
+              testID="statusID"
+            >
+              Alive
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "backgroundColor": "#ffffff",
+              "borderBottomLeftRadius": 10,
+              "borderBottomRightRadius": 10,
+              "borderTopLeftRadius": 10,
+              "borderTopRightRadius": 10,
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "marginBottom": 5,
+              "marginLeft": 5,
+              "marginRight": 5,
+              "marginTop": 5,
+              "paddingBottom": 10,
+              "paddingLeft": 10,
+              "paddingRight": 10,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+            testID="buttonID"
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+                }
+              }
+              style={
+                {
+                  "borderBottomLeftRadius": 10,
+                  "borderBottomRightRadius": 10,
+                  "borderTopLeftRadius": 10,
+                  "borderTopRightRadius": 10,
+                  "height": 100,
+                  "width": "100%",
+                }
+              }
+              testID="imageID"
+            />
+            <Text
+              aligin="center"
+              color="#FF87A2"
+              fontSize="18px"
+              isBold={true}
+              style={
+                {
+                  "color": "#FF87A2",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "textAlign": "center",
+                }
+              }
+              testID="nameID"
+            >
+              Morty Smith
+            </Text>
+            <Text
+              aligin="left"
+              color="#2CB9B0"
+              fontSize="16px"
+              isBold={true}
+              style={
+                {
+                  "color": "#2CB9B0",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "textAlign": "left",
+                }
+              }
+              testID="statusID"
+            >
+              Alive
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      onFocusCapture={[Function]}
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#ffffff",
+              "borderBottomLeftRadius": 10,
+              "borderBottomRightRadius": 10,
+              "borderTopLeftRadius": 10,
+              "borderTopRightRadius": 10,
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "marginBottom": 5,
+              "marginLeft": 5,
+              "marginRight": 5,
+              "marginTop": 5,
+              "paddingBottom": 10,
+              "paddingLeft": 10,
+              "paddingRight": 10,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+            testID="buttonID"
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+                }
+              }
+              style={
+                {
+                  "borderBottomLeftRadius": 10,
+                  "borderBottomRightRadius": 10,
+                  "borderTopLeftRadius": 10,
+                  "borderTopRightRadius": 10,
+                  "height": 100,
+                  "width": "100%",
+                }
+              }
+              testID="imageID"
+            />
+            <Text
+              aligin="center"
+              color="#FF87A2"
+              fontSize="18px"
+              isBold={true}
+              style={
+                {
+                  "color": "#FF87A2",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "textAlign": "center",
+                }
+              }
+              testID="nameID"
+            >
+              Summer Smith
+            </Text>
+            <Text
+              aligin="left"
+              color="#2CB9B0"
+              fontSize="16px"
+              isBold={true}
+              style={
+                {
+                  "color": "#2CB9B0",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "textAlign": "left",
+                }
+              }
+              testID="statusID"
+            >
+              Alive
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+    >
+      <ActivityIndicator
+        color="red"
+        size="large"
+      />
+    </View>
+  </View>
+</RCTScrollView>
+`;

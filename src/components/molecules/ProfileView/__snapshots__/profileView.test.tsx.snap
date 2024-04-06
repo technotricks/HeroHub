@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileView component should render correctly snapshot 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Image
+    borderColor="#2CB9B0"
+    source={
+      {
+        "uri": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+      }
+    }
+    style={
+      {
+        "borderBottomLeftRadius": 100,
+        "borderBottomRightRadius": 100,
+        "borderColor": "#2CB9B0",
+        "borderTopLeftRadius": 100,
+        "borderTopRightRadius": 100,
+        "borderWidth": 10,
+        "height": 200,
+        "width": 200,
+      }
+    }
+  />
+  <View
+    bgColor="#2CB9B0"
+    style={
+      {
+        "backgroundColor": "#2CB9B0",
+        "borderBottomLeftRadius": 100,
+        "borderBottomRightRadius": 100,
+        "borderTopLeftRadius": 100,
+        "borderTopRightRadius": 100,
+        "bottom": 2,
+        "paddingBottom": 2,
+        "paddingLeft": 7,
+        "paddingRight": 7,
+        "paddingTop": 2,
+        "position": "absolute",
+        "textAlign": "center",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        aligin="center"
+        color="#fefefe"
+        fontSize="20px"
+        isBold={true}
+        style={
+          {
+            "color": "#fefefe",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+      >
+        Alive
+      </Text>
+    </View>
+  </View>
+</View>
+`;
