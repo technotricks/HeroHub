@@ -4,6 +4,7 @@ import {useLazyGetCharacters} from '@/hooks';
 import {Character} from '@/types/character';
 import {Container} from '@/components/atom';
 import {SafeScreen, LoadMoreList} from '@/components/template';
+import {ErrorView} from '@/components/molecules';
 
 const CharacterList: React.FunctionComponent<ICharacterList.IProps> = props => {
   const {navigation} = props;
@@ -30,7 +31,9 @@ const CharacterList: React.FunctionComponent<ICharacterList.IProps> = props => {
       setPage(prevPage => prevPage + 1); // Increment page to fetch next page of data
     }
   };
-
+  if (error) {
+    return <ErrorView />;
+  }
   return (
     <SafeScreen>
       <Container>
