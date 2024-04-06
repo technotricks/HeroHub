@@ -14,7 +14,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({item}) => {
       <OverlayNameBottom bgColor={statusColor}>
         <Centered>
           <HText color="#fefefe" aligin="center" isBold fontSize="20px">
-            {item?.status ?? ''}
+            {item?.status !== 'unknown' ? item?.status : ''}
           </HText>
         </Centered>
       </OverlayNameBottom>

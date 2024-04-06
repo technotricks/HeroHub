@@ -11,6 +11,8 @@ import {
   ProfileView,
   PropertiesView,
   EpisodesView,
+  LoaderView,
+  ErrorView,
 } from '@/components/molecules';
 import {ButtonContainer} from '@/components/atom/button';
 
@@ -44,6 +46,12 @@ const CharacterDetail: React.FunctionComponent<
       );
     }
   };
+
+  if (loading) {
+    return <LoaderView />;
+  } else if (error) {
+    return <ErrorView />;
+  }
   return (
     <SafeScreen>
       <ScrollContainer>

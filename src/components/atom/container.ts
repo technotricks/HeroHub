@@ -13,6 +13,12 @@ export const Centered = styled.View`
   align-items: center;
 `;
 
+export const CenteredVH = styled.View`
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
+
 export const ScrollContainer = styled.ScrollView`
   height: 100%;
 `;
