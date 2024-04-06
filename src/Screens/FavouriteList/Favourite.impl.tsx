@@ -1,17 +1,17 @@
 import React from 'react';
 import {IFavourite} from './Favourite.types';
-import {useCharacterDetailQuery} from '@/hooks';
-import {Container, ItemText} from '@/components/atom';
+import {Container} from '@/components/atom';
 import {LoadMoreList, SafeScreen} from '@/components/template';
-import {Button} from 'react-native';
-import {useProtfolioReviewActions} from '@/store/redux/favourite.actions';
-import {saveCharacter} from '@/store/favourite.slice';
 import {getFavouriteCharacters} from '@/store/favourite.reselect';
+import {NoItemFoundView} from '@/components/molecules';
 
 const Favourite: React.FunctionComponent<IFavourite.IProps> = props => {
   const {navigation} = props;
   const characters = getFavouriteCharacters();
 
+  if (characters.length == 0) {
+    return <NoItemFoundView />;
+  }
   return (
     <SafeScreen>
       <Container>

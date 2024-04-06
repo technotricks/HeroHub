@@ -4,3 +4,4 @@ export {default as PropertiesView} from './PropertiesView';
 export {default as EpisodesView} from './EpisodesView';
 export {default as LoaderView} from './LoaderView';
 export {default as ErrorView} from './ErrorView';
+export {default as NoItemFoundView} from './NoItemFoundView';

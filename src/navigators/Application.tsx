@@ -37,7 +37,7 @@ const TabNavigator = () => {
         name="FavouriteList"
         component={FavouriteList}
         options={{
-          tabBarLabel: 'Favourite Characters',
+          tabBarLabel: 'Favourite',
           tabBarIcon: ({color}) => (
             <MaterialCommunityIcons name="heart" color={color} size={26} />
           ),
@@ -56,7 +56,11 @@ function ApplicationNavigator() {
           component={TabNavigator}
           options={{headerShown: false}}
         />
-        <Stack.Screen name="CharacterDetail" component={CharacterDetail} />
+        <Stack.Screen
+          name="CharacterDetail"
+          component={CharacterDetail}
+          options={{headerBackTitle: 'Back', title: 'Character Details'}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
