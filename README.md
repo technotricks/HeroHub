@@ -15,16 +15,13 @@ The Home screen contains two tabs:
 1. Character List: Displays a list of characters from the Rick and Morty universe.
 2. Favorite Character List: Displays a list of characters that the user has added to their favorites.
 
-<img src="docs/CList.png" alt="alt text" width="200" />
-<img src="docs/FavList.png" alt="alt text" width="200" />
-<img src="docs/NoItemFound.png" alt="alt text" width="200" />
+<img src="docs/CList.png" alt="alt text" width="200" /> <img src="docs/FavList.png" alt="alt text" width="200" /> <img src="docs/NoItemFound.png" alt="alt text" width="200" />
 
 ### Character Detail Screen
 
 The Character Detail screen displays detailed information about a specific character. Users can view the character's properties and episodes they appear in. Additionally, users can add or remove the character from their favorite list.
 
-<img src="docs/CD--Fav.png" alt="alt text" width="200" />
-<img src="docs/SD-RF.png" alt="alt text" width="200" />
+<img src="docs/CD--Fav.png" alt="alt text" width="200" /> <img src="docs/SD-RF.png" alt="alt text" width="200" />
 
 ## Folder Structure
 
