@@ -1,79 +1,44 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# HeroHub
 
-# Getting Started
+## Project Description
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+This project is a React Native application that utilizes the GraphQL API for the Rick and Morty API. The application allows users to explore characters from the Rick and Morty universe, view their details, and add or remove them from a favorite list.
 
-## Step 1: Start the Metro Server
+## Screens
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+The project consists of the following screens:
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### Home Screen
 
-```bash
-# using npm
-npm start
+The Home screen contains two tabs:
 
-# OR using Yarn
-yarn start
-```
+1. Character List: Displays a list of characters from the Rick and Morty universe.
+2. Favorite Character List: Displays a list of characters that the user has added to their favorites.
 
-## Step 2: Start your Application
+<img src="docs/CList.png" alt="alt text" width="200" />
+<img src="docs/FavList.png" alt="alt text" width="200" />
+<img src="docs/NoItemFound.png" alt="alt text" width="200" />
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+### Character Detail Screen
 
-### For Android
+The Character Detail screen displays detailed information about a specific character. Users can view the character's properties and episodes they appear in. Additionally, users can add or remove the character from their favorite list.
 
-```bash
-# using npm
-npm run android
+<img src="docs/CD--Fav.png" alt="alt text" width="200" />
+<img src="docs/SD-RF.png" alt="alt text" width="200" />
 
-# OR using Yarn
-yarn android
-```
+## Folder Structure
 
-### For iOS
+<img src="docs/Folder.png" alt="alt text" width="200" />
 
-```bash
-# using npm
-npm run ios
+### Libraries and Coding Practices Used
 
-# OR using Yarn
-yarn ios
-```
+The Home screen contains two tabs:
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+1. TypeScript: The project is written in TypeScript to provide static typing and improve code maintainability.
+2. Redux Toolkit: Redux Toolkit is used for state management, providing a simplified and opinionated approach to using Redux.
+3. Atomic Design Pattern: The project follows the Atomic Design pattern for organizing components, allowing for better scalability and reusability.
+4. Styled Components: Styled Components is used for styling, allowing for the creation of styled React components with the power of CSS-in-JS.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+## Author
 
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- [Kishore](https://www.linkedin.com/in/kishore-raj-0169242a/)
