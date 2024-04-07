@@ -26,7 +26,7 @@ const EpisodesView: React.FC<EpisodesViewProps> = ({item}) => {
       </HeadingContainer>
       {episodes?.map((episode, index) => {
         return (
-          <Row bgColor={index % 2 == 0 ? '#E8FFFA' : '#FFE4D9'}>
+          <Row key={index} bgColor={index % 2 == 0 ? '#E8FFFA' : '#FFE4D9'}>
             <Cell>
               <HText color="#0C0D34" aligin="center" fontSize="14px">
                 {episode.episode}

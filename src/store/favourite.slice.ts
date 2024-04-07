@@ -33,8 +33,6 @@ export const favouriteSlice = createSlice({
 
 export const {saveCharacter, removeCharacter} = favouriteSlice.actions;
 
-// export default favouriteSlice;
-
 const favouriteState = (state: BaseCustomerPortFolioFetchState) =>
   state?.[FAVOURITE_STATE_NAME] || initialState;
 export {favouriteState};

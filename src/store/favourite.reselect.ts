@@ -1,28 +1,22 @@
-import {createSelector} from 'reselect';
+import {createSelector} from '@reduxjs/toolkit';
 import {favouriteState} from './favourite.slice';
-import {
-  createParameterSelector,
-  customSelectorCreator,
-  useTypedSelector,
-} from '.';
+import {useTypedSelector} from '.';
 
 const _getFavouriteCharacters = createSelector(
-  favouriteState,
-  ({characters}) => {
-    return characters;
+  [favouriteState],
+  favouriteState => {
+    return favouriteState.characters;
   },
 );
 
 export const getFavouriteCharacters = () =>
   useTypedSelector(state => _getFavouriteCharacters(state));
 
-const _getFavCharacter = customSelectorCreator(
-  favouriteState,
-  createParameterSelector((id: number) => id),
-  ({characters}, id: number): boolean => {
-    return characters.find(item => item.id === id) != undefined;
+const isFav = createSelector(
+  [favouriteState, (favouriteState, id: number) => id],
+  (favouriteState, id) => {
+    return favouriteState.characters.find(item => item.id === id) != undefined;
   },
 );
-
 export const isFavCharacter = (id: number) =>
-  useTypedSelector(state => _getFavCharacter(state, id));
+  useTypedSelector(state => isFav(state, id));

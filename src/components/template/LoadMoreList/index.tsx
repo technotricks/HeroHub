@@ -11,6 +11,7 @@ const LoadMoreList: React.FunctionComponent<ILoadMore.Props> = props => {
       data={items}
       renderItem={item => (
         <CharacterCard
+          key={item.index}
           item={item.item}
           onPress={item => {
             onPress(item);
