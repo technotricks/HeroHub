@@ -56,7 +56,7 @@ exports[`CharacterCard component should render correctly snapshot 1`] = `
         "opacity": 1,
       }
     }
-    testID="buttonID"
+    testID="buttonID1"
   >
     <Image
       source={
@@ -74,7 +74,7 @@ exports[`CharacterCard component should render correctly snapshot 1`] = `
           "width": "100%",
         }
       }
-      testID="imageID"
+      testID="imageID1"
     />
     <Text
       aligin="center"
@@ -89,7 +89,7 @@ exports[`CharacterCard component should render correctly snapshot 1`] = `
           "textAlign": "center",
         }
       }
-      testID="nameID"
+      testID="nameID1"
     >
       Rick Sanchez
     </Text>
@@ -106,7 +106,7 @@ exports[`CharacterCard component should render correctly snapshot 1`] = `
           "textAlign": "left",
         }
       }
-      testID="statusID"
+      testID="statusID1"
     >
       Alive
     </Text>

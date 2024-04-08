@@ -8,7 +8,7 @@ import {CharacterList, CharacterDetail, FavouriteList} from '@/screens';
 
 import type {ApplicationStackParamList} from '@/types/navigation';
 
-const Stack = createStackNavigator<ApplicationStackParamList>();
+export const Stack = createStackNavigator<ApplicationStackParamList>();
 
 const Tab = createMaterialBottomTabNavigator<ApplicationStackParamList>();
 

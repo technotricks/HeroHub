@@ -36,6 +36,10 @@ The Home screen contains two tabs:
 3. Atomic Design Pattern: The project follows the Atomic Design pattern for organizing components, allowing for better scalability and reusability.
 4. Styled Components: Styled Components is used for styling, allowing for the creation of styled React components with the power of CSS-in-JS.
 
+### Code Coverage
+
+<img src="docs/codeCoverage.png" alt="alt text" width="400" />
+
 ## Author
 
 - [Kishore](https://www.linkedin.com/in/kishore-raj-0169242a/)

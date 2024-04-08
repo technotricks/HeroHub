@@ -29,13 +29,13 @@ describe('CharacterCard component should render correctly', () => {
   });
 
   it('CharacterCard press', () => {
-    const button = view.root.findByProps({testID: 'buttonID'}).props;
+    const button = view.root.findByProps({testID: 'buttonID1'}).props;
     act(() => button.onPress());
     expect(mockCallBack).toBeCalled();
   });
 
   it('CharacterCard name value render', () => {
-    const text = view.root.findByProps({testID: 'nameID'}).props;
+    const text = view.root.findByProps({testID: 'nameID1'}).props;
     expect(text).toBeDefined();
   });
 });

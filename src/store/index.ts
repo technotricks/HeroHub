@@ -3,6 +3,7 @@ import favouriteSlice from './favourite.slice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {persistReducer, persistStore} from 'redux-persist';
 import {TypedUseSelectorHook, useSelector} from 'react-redux';
+import {RenderOptions} from '@testing-library/react-native';
 
 const reducers = combineReducers({
   [favouriteSlice.reducerPath]: favouriteSlice.reducer,

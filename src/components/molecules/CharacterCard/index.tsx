@@ -8,11 +8,16 @@ import {TouchableOpacity} from 'react-native';
 import {CardProps} from './types';
 
 const CharacterCard: React.FC<CardProps> = ({item, onPress}) => (
-  <ItemContainer>
-    <TouchableOpacity testID="buttonID" onPress={() => onPress(item)}>
-      <CharacterImageSmall testID="imageID" source={{uri: item.image}} />
+  <ItemContainer key={item.id}>
+    <TouchableOpacity
+      testID={'buttonID' + item.id}
+      onPress={() => onPress(item)}>
+      <CharacterImageSmall
+        testID={'imageID' + item.id}
+        source={{uri: item.image}}
+      />
       <HText
-        testID="nameID"
+        testID={`nameID${item.id}`}
         color="#FF87A2"
         aligin="center"
         isBold
@@ -21,7 +26,7 @@ const CharacterCard: React.FC<CardProps> = ({item, onPress}) => (
       </HText>
 
       <HText
-        testID="statusID"
+        testID={'statusID' + item.id}
         color={item?.status == 'Alive' ? '#2CB9B0' : '#FF3600'}
         aligin="left"
         isBold
