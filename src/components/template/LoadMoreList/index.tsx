@@ -8,6 +8,7 @@ const LoadMoreList: React.FunctionComponent<ILoadMore.Props> = props => {
   return (
     <FlatList
       key={'_'}
+      testID="flatlistScrollableID"
       data={items}
       renderItem={item => (
         <CharacterCard

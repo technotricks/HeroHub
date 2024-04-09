@@ -18,7 +18,7 @@ const persistConfig = {
 };
 export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-const persistedReducer = persistReducer(persistConfig, reducers);
+export const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = configureStore({
   reducer: persistedReducer,

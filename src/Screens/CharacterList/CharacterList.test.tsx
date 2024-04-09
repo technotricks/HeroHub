@@ -4,18 +4,25 @@
 
 import 'react-native';
 import React from 'react';
-import App from '../src/App';
-
-// Note: import explicitly to use the types shipped with jest.
-import {NavigationContainer} from '@react-navigation/native';
 
 // Note: test renderer must be required after react-native.
-import {render} from '@/testUtils/testUtils';
-import ApplicationNavigator from './navigators/Application';
-
+import {screen, renderWithReduxNav, userEvent} from '@/testUtils/testUtils';
+import {Stack} from '@/navigators/Application';
 import {GET_CHARACTERS_QUERY, GET_CHARACTER_QUERY} from '@/apollo/query';
-
+import {CharacterList} from '@/screens';
 jest.useFakeTimers();
+
+const start = 0;
+const end = 30;
+
+const characterList = Array.from({length: end - start}, (_, i) => ({
+  id: i,
+  image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+  name: 'Rick Sanchez',
+  status: 'Alive',
+  gender: 'Male',
+  type: '',
+}));
 
 const mocks = [
   {
@@ -28,24 +35,7 @@ const mocks = [
     result: {
       data: {
         characters: {
-          results: [
-            {
-              id: '1',
-              image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-              name: 'Rick Sanchez',
-              status: 'Alive',
-              gender: 'Male',
-              type: '',
-            },
-            {
-              id: '2',
-              image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',
-              name: 'Morty Smith',
-              status: 'Alive',
-              gender: 'Male',
-              type: '',
-            },
-          ],
+          results: characterList,
           info: {
             count: 826,
             next: 2,
@@ -66,7 +56,7 @@ const mocks = [
     result: {
       data: {
         character: {
-          id: '1',
+          id: 1,
           image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
           name: 'Rick Sanchez',
           gender: 'Male',
@@ -92,9 +82,25 @@ const mocks = [
     },
   },
 ];
-describe('Screen should render', () => {
-  it('Character List should render properly', () => {
-    const component = render(<ApplicationNavigator />, {mockData: mocks});
+describe('Character List Screen', () => {
+  it(' Character List should render properly', async () => {
+    const component = renderWithReduxNav(
+      <Stack.Navigator>
+        <Stack.Screen name="CharacterList" component={CharacterList} />
+      </Stack.Navigator>,
+      {
+        mockData: mocks,
+        initialState: {favouriteSlice: {characters: characterList}},
+      },
+    );
+    const scrollView = screen.getByTestId('flatlistScrollableID');
+
+    //flatlistScrollableID
+    const user = userEvent.setup();
+    await user.scrollTo(scrollView, {y: 100, momentumY: 200});
+    await user.scrollTo(scrollView, {y: 100, momentumY: 200});
+    await user.scrollTo(scrollView, {y: 100, momentumY: 200});
+
     expect(component).toBeDefined();
   });
 });

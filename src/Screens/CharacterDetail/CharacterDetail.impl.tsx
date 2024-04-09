@@ -30,6 +30,9 @@ const CharacterDetail: React.FunctionComponent<
   const buttonColor = isFav ? '#FE5E33' : '#2CB9B0';
   const buttonText = isFav ? 'Remove from Faourite' : 'Add to Faourite';
 
+  console.log('PARAM', id);
+  console.log('PARAM-isFav', isFav);
+
   const onFavClick = () => {
     if (isFav) {
       dispatch(removeCharacter(data?.character?.id ?? -1));
@@ -59,7 +62,10 @@ const CharacterDetail: React.FunctionComponent<
         <HText color="#232323" aligin="center" isBold>
           {data?.character.name}
         </HText>
-        <ButtonContainer bgColor={buttonColor} onPress={onFavClick}>
+        <ButtonContainer
+          testID="favButtonID"
+          bgColor={buttonColor}
+          onPress={onFavClick}>
           <HText color="#ffffff" aligin="center" isBold fontSize="22px">
             {buttonText}
           </HText>

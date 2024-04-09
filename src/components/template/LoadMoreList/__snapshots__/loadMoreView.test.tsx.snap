@@ -51,6 +51,7 @@ exports[`LoadMoreView component should render correctly snapshot 1`] = `
   renderItem={[Function]}
   scrollEventThrottle={0.0001}
   stickyHeaderIndices={[]}
+  testID="flatlistScrollableID"
   viewabilityConfigCallbackPairs={[]}
 >
   <View>

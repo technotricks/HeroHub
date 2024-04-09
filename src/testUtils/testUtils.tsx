@@ -1,115 +1,79 @@
 import * as React from 'react';
 import {RenderOptions} from '@testing-library/react-native';
 import {Provider} from 'react-redux';
-import {persistor, store} from '@/store';
+import {persistor, store as s, RootState, persistedReducer} from '@/store';
 import {render} from '@testing-library/react-native';
 import {MockedProvider, MockedResponse} from '@apollo/client/testing';
-import {GraphQLRequest} from '@apollo/client';
-import {GET_CHARACTERS_QUERY, GET_CHARACTER_QUERY} from '@/apollo/query';
 import {NavigationContainer} from '@react-navigation/native';
+import {PersistGate} from 'redux-persist/integration/react';
+import {configureStore} from '@reduxjs/toolkit';
+import {Favouritetate} from '@/store/favourite.slice';
+import {PersistPartial} from 'redux-persist/es/persistReducer';
 
-const mocks = [
-  {
-    request: {
-      query: GET_CHARACTERS_QUERY,
-      variables: {
-        page: 1,
-      },
-    },
-    result: {
-      data: {
-        characters: {
-          results: [
-            {
-              id: '1',
-              image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-              name: 'Rick Sanchez',
-              status: 'Alive',
-              gender: 'Male',
-              type: '',
-            },
-            {
-              id: '2',
-              image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',
-              name: 'Morty Smith',
-              status: 'Alive',
-              gender: 'Male',
-              type: '',
-            },
-          ],
-          info: {
-            count: 826,
-            next: 2,
-            pages: 42,
-            prev: null,
-          },
-        },
-      },
-    },
-  },
-  {
-    request: {
-      query: GET_CHARACTER_QUERY,
-      variables: {
-        characterId: 1,
-      },
-    },
-    result: {
-      data: {
-        character: {
-          id: '1',
-          image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-          name: 'Rick Sanchez',
-          gender: 'Male',
-          status: 'Alive',
-          origin: {
-            name: 'Earth (C-137)',
-          },
-          location: {
-            name: 'Citadel of Ricks',
-          },
-          episode: [
-            {
-              episode: 'S01E01',
-              name: 'Pilot',
-            },
-            {
-              episode: 'S01E02',
-              name: 'Lawnmower Dog',
-            },
-          ],
-        },
-      },
-    },
-  },
-];
+type DeepPartial<T> = {
+  [P in keyof T]?: DeepPartial<T[P]>;
+};
+type RootReducerType = DeepPartial<ReturnType<typeof persistedReducer>>;
+
+export type CustomRenderOptions = {
+  mockData?: ReadonlyArray<MockedResponse<any, any>>;
+  initialState?: RootReducerType;
+  _store?: ReturnType<typeof configureAPPStore>;
+};
+
 export function renderWithRedux(
   ui: React.ReactElement,
-  options?: RenderOptions,
+  {
+    mockData,
+    initialState,
+    _store = configureAPPStore(initialState),
+  }: CustomRenderOptions,
 ) {
   const ReduxWrapper = ({children}: {children: React.ReactNode}) => (
-    <Provider store={store}>
-      <MockedProvider mocks={mocks} addTypename={false}>
-        {children}
-      </MockedProvider>
+    <Provider store={_store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <MockedProvider mocks={mockData} addTypename={false}>
+          {children}
+        </MockedProvider>
+      </PersistGate>
     </Provider>
   );
-  return render(ui, {wrapper: ReduxWrapper, ...options});
+  return render(ui, {wrapper: ReduxWrapper});
 }
 
 export function renderWithReduxNav(
   ui: React.ReactElement,
-  options?: RenderOptions,
+  {
+    mockData,
+    initialState,
+    _store = configureAPPStore(initialState),
+  }: CustomRenderOptions,
 ) {
   const ReduxWrapper = ({children}: {children: React.ReactNode}) => (
-    <Provider store={store}>
-      <MockedProvider mocks={mocks} addTypename={false}>
-        <NavigationContainer>{children}</NavigationContainer>
-      </MockedProvider>
+    <Provider store={_store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <MockedProvider mocks={mockData} addTypename={false}>
+          <NavigationContainer>{children}</NavigationContainer>
+        </MockedProvider>
+      </PersistGate>
     </Provider>
   );
-  return render(ui, {wrapper: ReduxWrapper, ...options});
+  return render(ui, {wrapper: ReduxWrapper});
 }
+
+const configureAPPStore = (initialState: any) => {
+  const mergeInitialState = {...initialState};
+  const store = configureStore({
+    reducer: persistedReducer,
+    preloadedState: mergeInitialState,
+    middleware: getDefaultMiddleware =>
+      getDefaultMiddleware({
+        serializableCheck: false,
+      }),
+  });
+
+  return store;
+};
 
 export * from '@testing-library/react-native';
 export {renderWithRedux as render};
