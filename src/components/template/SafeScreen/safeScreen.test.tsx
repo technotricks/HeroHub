@@ -5,7 +5,7 @@ import {it, expect, describe} from '@jest/globals';
 
 // Note: test renderer must be required after react-native.
 import {act, create} from 'react-test-renderer';
-import SafeScreen from './SafeScreen';
+import {SafeScreen} from '@/components/template';
 
 describe('SafeScreen component should render correctly', () => {
   const view = create(<SafeScreen></SafeScreen>);

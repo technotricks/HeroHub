@@ -5,7 +5,7 @@ import {it, expect, describe} from '@jest/globals';
 
 // Note: test renderer must be required after react-native.
 import {act, create} from 'react-test-renderer';
-import LoadMoreView from '.';
+import {LoadMoreList} from '@/components/template';
 import {Character} from '@/types/character';
 
 describe('LoadMoreView component should render correctly', () => {
@@ -38,7 +38,7 @@ describe('LoadMoreView component should render correctly', () => {
   const mockCallBack = jest.fn();
 
   const view = create(
-    <LoadMoreView items={characters} isLoading={true} onPress={mockCallBack} />,
+    <LoadMoreList items={characters} isLoading={true} onPress={mockCallBack} />,
   );
 
   it('snapshot', () => {

@@ -15,6 +15,7 @@ import ApplicationNavigator from './navigators/Application';
 
 import {GET_CHARACTERS_QUERY, GET_CHARACTER_QUERY} from '@/apollo/query';
 
+import {client} from '@/apollo';
 jest.useFakeTimers();
 
 const mocks = [
@@ -93,8 +94,16 @@ const mocks = [
   },
 ];
 describe('Screen should render', () => {
+  it('App  should render properly', () => {
+    const component = render(<App />, {mockData: mocks});
+    expect(component).toBeDefined();
+  });
   it('Character List should render properly', () => {
     const component = render(<ApplicationNavigator />, {mockData: mocks});
     expect(component).toBeDefined();
+  });
+
+  it('Client not null', () => {
+    expect(client).not.toBeNull();
   });
 });
