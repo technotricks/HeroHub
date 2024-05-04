@@ -1,4 +1,3 @@
-import {useLazyQuery, DocumentNode, LazyQueryResult} from '@apollo/client';
 export type QueryResult<T> = {
   loading: boolean;
   data: T | undefined;

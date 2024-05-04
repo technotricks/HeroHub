@@ -6,7 +6,7 @@ import {
 } from '@/components/atom';
 import {ProfileViewProps} from './types';
 
-const ProfileView: React.FC<ProfileViewProps> = ({item}) => {
+const ProfileView: React.FC<ProfileViewProps> = ({item}: ProfileViewProps) => {
   const statusColor = item?.status == 'Alive' ? '#2CB9B0' : '#FE5E33';
   return (
     <Centered>
