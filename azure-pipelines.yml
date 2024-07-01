@@ -28,13 +28,35 @@ jobs:
           yarn install
         displayName: 'Install dependencies'
 
-      - script: |
-          cd android
-          ./gradlew clean assembleRelease
-        displayName: 'Build Android Release'
+      - task: Gradle@2
+        inputs:
+          workingDirectory: 'src/android'
+          gradleWrapperFile: 'src/android/gradlew'
+          gradleOptions: '-Xmx3072m'
+          publishJUnitResults: false
+          testResultsFiles: '**/TEST-*.xml'
+          tasks: 'assembleRelease'
+
+      - task: AndroidSigning@2
+        inputs:
+          apkFiles: '**/*.apk'
+          jarsign: true
+          jarsignerKeystoreFile: 'android.keystore'
+          jarsignerKeystorePassword: 'kishore123'
+          jarsignerKeystoreAlias: 'react-native-pipeline-key'
+          jarsignerKeyPassword: 'kishore123'
+          zipalign: true
+
+      - script: mv src/android/app/build/outputs/apk/release/app-release-unsigned.apk ReactNativePipeline$(Build.BuildNumber).apk
+        displayName: 'Rename apk'
+
+      # - script: |
+      #     cd android
+      #     ./gradlew clean assembleRelease
+      #   displayName: 'Build Android Release'
 
       - task: PublishBuildArtifacts@1
         inputs:
-          PathtoPublish: 'android/app/build/outputs/apk/release/app-release.apk'
+          PathtoPublish: ReactNativePipeline$(Build.BuildNumber).apk
           ArtifactName: 'android-release-apk'
           publishLocation: 'Container'
