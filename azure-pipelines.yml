@@ -18,6 +18,13 @@ jobs:
           version: '18.x'
 
       - script: |
+          sudo update-alternatives --set java $(update-alternatives --list java | grep java-11)
+          sudo update-alternatives --set javac $(update-alternatives --list javac | grep java-11)
+          java -version
+          javac -version
+        displayName: 'Set Java 11'
+
+      - script: |
           yarn install
         displayName: 'Install dependencies'
 
