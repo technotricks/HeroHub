@@ -30,7 +30,7 @@ jobs:
 
       - script: |
           cd android
-          ./gradlew assembleRelease
+          ./gradlew clean assembleRelease
         displayName: 'Build Android Release'
 
       - task: PublishBuildArtifacts@1
