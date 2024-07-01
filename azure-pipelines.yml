@@ -7,18 +7,27 @@ trigger:
   - master
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'macOS-latest'
 
-steps:
-  - task: UseNode@1
-    displayName: 'Install Node'
-    inputs:
-      version: '18.x'
+jobs:
+  - job: Build_Android
+    displayName: 'Build Android App'
+    steps:
+      - task: UseNode@1
+        inputs:
+          version: '18.x'
 
-  - script: |
-      yarn install
-    displayName: 'Install dependencies'
+      - script: |
+          yarn install
+        displayName: 'Install dependencies'
 
-  - script: |
-      yarn build
-    displayName: 'Build project'
+      - script: |
+          cd android
+          ./gradlew assembleRelease
+        displayName: 'Build Android Release'
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: 'android/app/build/outputs/apk/release/app-release.apk'
+          ArtifactName: 'android-release-apk'
+          publishLocation: 'Container'
