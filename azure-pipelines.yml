@@ -29,9 +29,6 @@ jobs:
           brew install node@20
           brew link node@20
           brew install yarn
-          brew install corepack
-          corepack enable
-          yarn set version stable
           yarn
         displayName: 'Install dependencies'
 
