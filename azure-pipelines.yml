@@ -13,9 +13,9 @@ jobs:
   - job: Build_Android
     displayName: 'Build Android App'
     steps:
-      - task: UseNode@1
-        inputs:
-          version: '20'
+      # - task: UseNode@1
+      #   inputs:
+      #     version: '20'
 
       - script: |
           sudo update-alternatives --set java $(update-alternatives --list java | grep java-11)
