@@ -16,7 +16,11 @@ jobs:
       # - task: UseNode@1
       #   inputs:
       #     version: '20'
-
+      - task: NodeTool@0
+        inputs:
+          versionSource: 'spec'
+          versionSpec: '20'
+          checkLatest: true
       - script: |
           sudo update-alternatives --set java $(update-alternatives --list java | grep java-11)
           sudo update-alternatives --set javac $(update-alternatives --list javac | grep java-11)
