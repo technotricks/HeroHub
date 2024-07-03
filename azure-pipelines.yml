@@ -21,17 +21,18 @@ jobs:
           versionSource: 'spec'
           versionSpec: '20'
           checkLatest: true
-      - script: |
-          sudo update-alternatives --set java $(update-alternatives --list java | grep java-11)
-          sudo update-alternatives --set javac $(update-alternatives --list javac | grep java-11)
-          java -version
-          javac -version
-        displayName: 'Set Java 11'
+      # - script: |
+      #     sudo update-alternatives --set java $(update-alternatives --list java | grep java-11)
+      #     sudo update-alternatives --set javac $(update-alternatives --list javac | grep java-11)
+      #     java -version
+      #     javac -version
+      #   displayName: 'Set Java 11'
 
       - script: |
           brew install cocoapods
-          brew install node@20
-          brew link node@20
+          brew install openjdk
+          # brew install node@20
+          # brew link node@20
           brew install yarn
           yarn
         displayName: 'Install dependencies'
