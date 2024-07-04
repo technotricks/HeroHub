@@ -29,13 +29,22 @@ jobs:
       #   displayName: 'Set Java 11'
 
       - script: |
-          brew install cocoapods
-          brew install openjdk
+          # brew install cocoapods
+          # brew install openjdk
           # brew install node@20
           # brew link node@20
-          brew install yarn
+          # brew install yarn
           yarn
         displayName: 'Install dependencies'
+
+      - task: Gradle@2
+        inputs:
+          workingDirectory: 'src/android'
+          gradleWrapperFile: 'src/android/gradlew'
+          gradleOptions: '-Xmx3072m'
+          publishJUnitResults: false
+          testResultsFiles: '**/TEST-*.xml'
+          tasks: 'assembleRelease'
 
       # - task: Gradle@2
       #   inputs:
@@ -71,13 +80,13 @@ jobs:
       #     publishLocation: 'Container'
 
 
-      - script: |
-          cd android
-          ./gradlew assembleDebug
-        displayName: 'Build Android Debug APK'
+      # - script: |
+      #     cd android
+      #     ./gradlew assembleDebug
+      #   displayName: 'Build Android Debug APK'
 
-      - task: PublishPipelineArtifact@1
-        inputs:
-          targetPath: '$(Pipeline.Workspace)/android/app/build/outputs/apk/debug/'
-          artifact: 'drop'
-        displayName: 'Publish Debug APK'
+      # - task: PublishPipelineArtifact@1
+      #   inputs:
+      #     targetPath: '$(Pipeline.Workspace)/android/app/build/outputs/apk/debug/'
+      #     artifact: 'drop'
+      #   displayName: 'Publish Debug APK'
