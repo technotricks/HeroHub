@@ -1,92 +1,37 @@
-# Node.js
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
 trigger:
-  - infra
-
+- master
 pool:
   vmImage: 'macOS-latest'
 
-jobs:
-  - job: Build_Android
-    displayName: 'Build Android App'
-    steps:
-      # - task: UseNode@1
-      #   inputs:
-      #     version: '20'
-      - task: NodeTool@0
-        inputs:
-          versionSource: 'spec'
-          versionSpec: '20'
-          checkLatest: true
-      # - script: |
-      #     sudo update-alternatives --set java $(update-alternatives --list java | grep java-11)
-      #     sudo update-alternatives --set javac $(update-alternatives --list javac | grep java-11)
-      #     java -version
-      #     javac -version
-      #   displayName: 'Set Java 11'
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.17.1'
+  displayName: 'Install Node.js'
 
-      - script: |
-          # brew install cocoapods
-          # brew install openjdk
-          # brew install node@20
-          # brew link node@20
-          # brew install yarn
-          yarn
-        displayName: 'Install dependencies'
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '11'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'PreInstalled'
 
-      - task: Gradle@2
-        inputs:
-          workingDirectory: 'src/android'
-          gradleWrapperFile: 'src/android/gradlew'
-          gradleOptions: '-Xmx3072m'
-          publishJUnitResults: false
-          testResultsFiles: '**/TEST-*.xml'
-          tasks: 'assembleRelease'
+- script: |
+    brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 
-      # - task: Gradle@2
-      #   inputs:
-      #     workingDirectory: 'src/android'
-      #     gradleWrapperFile: 'src/android/gradlew'
-      #     gradleOptions: '-Xmx3072m'
-      #     publishJUnitResults: false
-      #     testResultsFiles: '**/TEST-*.xml'
-      #     tasks: 'assembleRelease'
+    yarn install
+    cd android
+    echo "org.gradle.java.home=$JAVA_HOME" >> ./gradle.properties
+  displayName: 'Android Setup Script'
 
-      # - task: AndroidSigning@2
-      #   inputs:
-      #     apkFiles: '**/*.apk'
-      #     jarsign: true
-      #     jarsignerKeystoreFile: 'android.keystore'
-      #     jarsignerKeystorePassword: 'kishore123'
-      #     jarsignerKeystoreAlias: 'react-native-pipeline-key'
-      #     jarsignerKeyPassword: 'kishore123'
-      #     zipalign: true
-
-      # - script: mv src/android/app/build/outputs/apk/release/app-release-unsigned.apk ReactNativePipeline$(Build.BuildNumber).apk
-      #   displayName: 'Rename apk'
-
-      # - script: |
-      #     cd android
-      #     ./gradlew clean assembleRelease
-      #   displayName: 'Build Android Release'
-
-      # - task: PublishBuildArtifacts@1
-      #   inputs:
-      #     PathtoPublish: ReactNativePipeline$(Build.BuildNumber).apk
-      #     ArtifactName: 'android-release-apk'
-      #     publishLocation: 'Container'
-
-
-      # - script: |
-      #     cd android
-      #     ./gradlew assembleDebug
-      #   displayName: 'Build Android Debug APK'
-
-      # - task: PublishPipelineArtifact@1
-      #   inputs:
-      #     targetPath: '$(Pipeline.Workspace)/android/app/build/outputs/apk/debug/'
-      #     artifact: 'drop'
-      #   displayName: 'Publish Debug APK'
+- task: Gradle@3
+  inputs:
+    workingDirectory: 'android/'
+    gradleWrapperFile: 'android/gradlew'
+    gradleOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: false
+    sonarQubeRunAnalysis: false
+    tasks: 'assembleDebug'
+    options: '-PversionName=$(Build.BuildNumber) -PversionCode=$(Build.BuildId)'
