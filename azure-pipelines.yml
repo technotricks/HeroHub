@@ -21,6 +21,7 @@ steps:
     yarn install
     cd android
     echo "org.gradle.java.home=$JAVA_HOME" >> ./gradle.properties
+    ls
   displayName: 'Android Setup Script'
 
 - task: Gradle@3
