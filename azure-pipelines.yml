@@ -55,12 +55,21 @@ jobs:
           ls -R android/app/build/outputs/
         displayName: 'List Build Outputs'
 
+      - script: mv android/app/build/outputs/apk/debug/app-debug.apk ReactNativePipeline$(Build.BuildNumber).apk
+        displayName: 'Rename apk'
+
       - task: PublishBuildArtifacts@1
         inputs:
-          PathtoPublish: android/app/build/outputs/apk/debug'
-          ArtifactName: 'android'
+          PathtoPublish: ReactNativePipeline$(Build.BuildNumber).apk
+          ArtifactName: 'drop'
           publishLocation: 'Container'
         displayName: 'Publish APK to artifacts'
+
+      # - task: PublishBuildArtifacts@1
+      #   inputs:
+      #     PathtoPublish: ReactNativePipeline$(Build.BuildNumber).apk
+      #     artifactName: drop
+      #     publishLocation: 'container'
 
       # - script: |
       #     cd android
