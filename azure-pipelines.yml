@@ -7,6 +7,11 @@ pool:
 steps:
 - script: |
     echo $(System.DefaultWorkingDirectory)
+    echo "Path"
+    ls
+    echo "*****"
+    echo "**PWD***"
+    pwd
   displayName: 'Print'
 
 - task: Gradle@2
