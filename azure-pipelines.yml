@@ -2,6 +2,7 @@ trigger:
 - infra
 pool:
   vmImage: 'macOS-latest'
+  
 
 steps:
 - task: NodeTool@0
