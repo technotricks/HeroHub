@@ -32,6 +32,7 @@ const RAW_RUNTIME_STATE =
           ["@babel/preset-env", "virtual:78443c12a2f3d1f6f649f5f600ce4e8c16cf68e7dd40fb248e9d4c61004074935f39cebcf817444e691ded7fbcf6f7b176a0f3da5dcb27b5714fa79923ca442f#npm:7.25.0"],\
           ["@babel/runtime", "npm:7.25.0"],\
           ["@react-native-async-storage/async-storage", "virtual:78443c12a2f3d1f6f649f5f600ce4e8c16cf68e7dd40fb248e9d4c61004074935f39cebcf817444e691ded7fbcf6f7b176a0f3da5dcb27b5714fa79923ca442f#npm:1.24.0"],\
+          ["@react-native-community/cli-platform-android", "npm:14.0.0"],\
           ["@react-native/babel-preset", "virtual:9a66ad1ef11c2f0ad132ece2b2cdac19a6b8d86d0c2a40f117490d131c5cd75ddb17860b1f2b6e0c3a6cc8a11accf91e9b323c2bee628e08b60afdb2bb20ed17#npm:0.73.21"],\
           ["@react-native/eslint-config", "virtual:78443c12a2f3d1f6f649f5f600ce4e8c16cf68e7dd40fb248e9d4c61004074935f39cebcf817444e691ded7fbcf6f7b176a0f3da5dcb27b5714fa79923ca442f#npm:0.73.2"],\
           ["@react-native/metro-config", "npm:0.73.5"],\
@@ -4042,6 +4043,19 @@ const RAW_RUNTIME_STATE =
           ["logkitty", "npm:0.7.1"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:14.0.0", {\
+        "packageLocation": "../../../../../Users/kishore/.yarn/berry/cache/@react-native-community-cli-platform-android-npm-14.0.0-56241f53c3-10c0.zip/node_modules/@react-native-community/cli-platform-android/",\
+        "packageDependencies": [\
+          ["@react-native-community/cli-platform-android", "npm:14.0.0"],\
+          ["@react-native-community/cli-tools", "npm:14.0.0"],\
+          ["chalk", "npm:4.1.2"],\
+          ["execa", "npm:5.1.1"],\
+          ["fast-glob", "npm:3.3.2"],\
+          ["fast-xml-parser", "npm:4.4.1"],\
+          ["logkitty", "npm:0.7.1"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@react-native-community/cli-platform-ios", [\
@@ -4096,6 +4110,23 @@ const RAW_RUNTIME_STATE =
           ["find-up", "npm:5.0.0"],\
           ["mime", "npm:2.6.0"],\
           ["node-fetch", "virtual:f6b7eb88932b92f552b47507207ec117411fed72302589f96bd585dc8174dfd8fa836526e2aadc3ba9da5b245258a867735c312762c425285c11ca0316eef5d7#npm:2.7.0"],\
+          ["open", "npm:6.4.0"],\
+          ["ora", "npm:5.4.1"],\
+          ["semver", "npm:7.6.3"],\
+          ["shell-quote", "npm:1.8.1"],\
+          ["sudo-prompt", "npm:9.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:14.0.0", {\
+        "packageLocation": "../../../../../Users/kishore/.yarn/berry/cache/@react-native-community-cli-tools-npm-14.0.0-e8786f221a-10c0.zip/node_modules/@react-native-community/cli-tools/",\
+        "packageDependencies": [\
+          ["@react-native-community/cli-tools", "npm:14.0.0"],\
+          ["appdirsjs", "npm:1.2.7"],\
+          ["chalk", "npm:4.1.2"],\
+          ["execa", "npm:5.1.1"],\
+          ["find-up", "npm:5.0.0"],\
+          ["mime", "npm:2.6.0"],\
           ["open", "npm:6.4.0"],\
           ["ora", "npm:5.4.1"],\
           ["semver", "npm:7.6.3"],\
@@ -5282,6 +5313,7 @@ const RAW_RUNTIME_STATE =
           ["@babel/preset-env", "virtual:78443c12a2f3d1f6f649f5f600ce4e8c16cf68e7dd40fb248e9d4c61004074935f39cebcf817444e691ded7fbcf6f7b176a0f3da5dcb27b5714fa79923ca442f#npm:7.25.0"],\
           ["@babel/runtime", "npm:7.25.0"],\
           ["@react-native-async-storage/async-storage", "virtual:78443c12a2f3d1f6f649f5f600ce4e8c16cf68e7dd40fb248e9d4c61004074935f39cebcf817444e691ded7fbcf6f7b176a0f3da5dcb27b5714fa79923ca442f#npm:1.24.0"],\
+          ["@react-native-community/cli-platform-android", "npm:14.0.0"],\
           ["@react-native/babel-preset", "virtual:9a66ad1ef11c2f0ad132ece2b2cdac19a6b8d86d0c2a40f117490d131c5cd75ddb17860b1f2b6e0c3a6cc8a11accf91e9b323c2bee628e08b60afdb2bb20ed17#npm:0.73.21"],\
           ["@react-native/eslint-config", "virtual:78443c12a2f3d1f6f649f5f600ce4e8c16cf68e7dd40fb248e9d4c61004074935f39cebcf817444e691ded7fbcf6f7b176a0f3da5dcb27b5714fa79923ca442f#npm:0.73.2"],\
           ["@react-native/metro-config", "npm:0.73.5"],\
