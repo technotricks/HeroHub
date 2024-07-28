@@ -13,6 +13,11 @@ jobs:
       versionSpec: '21.6.2'
     displayName: 'Install Node.js'
 
+  - script: |
+      corepack enable 
+      yarn set version stable
+    displayName: 'Pre Dependancy'
+
   - script: yarn install
     displayName: 'Install Node.js dependencies with Yarn'
 
@@ -21,7 +26,7 @@ jobs:
       ls
       pwd
       ./gradlew assembleDebug
-    displayName: 'Print'
+    displayName: 'Android Build'
 
  
 
