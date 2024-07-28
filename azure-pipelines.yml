@@ -1,49 +1,49 @@
 trigger:
-- infra
+  - infra
 pool:
   vmImage: 'macOS-latest'
-  
+
 jobs:
-- job: Build
-  displayName: 'Build Android Debug'
+  - job: Build
+    displayName: 'Build Android Debug'
 
-  steps:
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '21.6.2'
-    displayName: 'Install Node.js'
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '21.6.2'
+        displayName: 'Install Node.js'
 
-  - script: |
-      corepack enable 
-      yarn set version stable
-    displayName: 'Pre Dependancy'
+      - script: |
+          corepack enable 
+          yarn set version stable
+          echo "export NODE_OPTIONS=--max_old_space_size=4096" >> $BASH_ENV
+          source $BASH_ENV
+        displayName: 'Pre Dependancy'
 
-  - script: yarn install
-    displayName: 'Install Node.js dependencies with Yarn'
+      - script: yarn install
+        displayName: 'Install Node.js dependencies with Yarn'
 
-  - script: |
-      cd android
-      ls
-      pwd
-      ./gradlew assembleDebug
-    displayName: 'Android Build'
+      - script: |
+          cd android
+          ls
+          pwd
+          ./gradlew assembleDebug
+        displayName: 'Android Build'
 
- 
+    # - script: pwd
+    #   displayName: 'Current directory'
 
-  # - script: pwd
-  #   displayName: 'Current directory'
+    # - task: Gradle@2
+    #   inputs:
+    #     gradleWrapperFile: 'android/gradlew'
+    #     options: 'clean'
+    #     tasks: 'clean'
+    #   displayName: 'Clean Gradle cache'
 
-  # - task: Gradle@2
-  #   inputs:
-  #     gradleWrapperFile: 'android/gradlew'
-  #     options: 'clean'
-  #     tasks: 'clean'
-  #   displayName: 'Clean Gradle cache'
-
-  # - task: Gradle@2
-  #   inputs:
-  #     gradleWrapperFile: 'android/gradlew'
-  #     options: '--stacktrace --info'
-  #     tasks: 'assembleDebug'
-  #     workingDirectory: 'android'
-  #   displayName: 'Build Android Debug APK'
+    # - task: Gradle@2
+    #   inputs:
+    #     gradleWrapperFile: 'android/gradlew'
+    #     options: '--stacktrace --info'
+    #     tasks: 'assembleDebug'
+    #     workingDirectory: 'android'
+    #   displayName: 'Build Android Debug APK'
