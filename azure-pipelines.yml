@@ -16,11 +16,11 @@ jobs:
   - script: yarn install
     displayName: 'Install Node.js dependencies with Yarn'
 
-  - script: yarn cache clean
-    displayName: 'Clean Yarn cache'
-
   - script: cd android
     displayName: 'Navigate to Android directory'
+
+  - script: pwd
+    displayName: 'Current directory'
 
   - task: Gradle@2
     inputs:
