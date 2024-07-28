@@ -5,25 +5,28 @@ pool:
   
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '16.17.1'
-  displayName: 'Install Node.js'
-
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: '11'
-    jdkArchitectureOption: 'x64'
-    jdkSourceOption: 'PreInstalled'
-
 - script: |
-    brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
+    echo $(System.DefaultWorkingDirectory)
+  displayName: 'Print'
+# - task: NodeTool@0
+#   inputs:
+#     versionSpec: '16.17.1'
+#   displayName: 'Install Node.js'
 
-    yarn install
-    cd android
-    echo "org.gradle.java.home=$JAVA_HOME" >> ./gradle.properties
-    ls
-  displayName: 'Android Setup Script'
+# - task: JavaToolInstaller@0
+#   inputs:
+#     versionSpec: '11'
+#     jdkArchitectureOption: 'x64'
+#     jdkSourceOption: 'PreInstalled'
+
+# - script: |
+#     brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
+
+#     yarn install
+#     cd android
+#     echo "org.gradle.java.home=$JAVA_HOME" >> ./gradle.properties
+#     ls
+#   displayName: 'Android Setup Script'
 
 # - task: Gradle@3
 #   inputs:
@@ -40,14 +43,14 @@ steps:
 
     
    
-- task: Gradle@2
-  inputs:
-    workingDirectory: '$(System.DefaultWorkingDirectory)/android'
-    gradleWrapperFile: '$(System.DefaultWorkingDirectory)/android/gradlew'
-    gradleOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: false
-    tasks: 'assembleDebug'
-  displayName: gradlew assembleDebug
+# - task: Gradle@2
+#   inputs:
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/android'
+#     gradleWrapperFile: '$(System.DefaultWorkingDirectory)/android/gradlew'
+#     gradleOptions: '-Xmx3072m'
+#     javaHomeOption: 'JDKVersion'
+#     jdkVersionOption: '1.8'
+#     jdkArchitectureOption: 'x64'
+#     publishJUnitResults: false
+#     tasks: 'assembleDebug'
+#   displayName: gradlew assembleDebug
