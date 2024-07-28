@@ -37,15 +37,15 @@ jobs:
           testResultsFiles: '**/TEST-*.xml'
           tasks: 'assembleRelease'
 
-      - task: AndroidSigning@2
-        inputs:
-          apkFiles: '**/*.apk'
-          jarsign: true
-          jarsignerKeystoreFile: 'android.keystore'
-          jarsignerKeystorePassword: 'kishore123'
-          jarsignerKeystoreAlias: 'react-native-pipeline-key'
-          jarsignerKeyPassword: 'kishore123'
-          zipalign: true
+      # - task: AndroidSigning@2
+      #   inputs:
+      #     apkFiles: '**/*.apk'
+      #     jarsign: true
+      #     jarsignerKeystoreFile: 'android.keystore'
+      #     jarsignerKeystorePassword: 'kishore123'
+      #     jarsignerKeystoreAlias: 'react-native-pipeline-key'
+      #     jarsignerKeyPassword: 'kishore123'
+      #     zipalign: true
 
       - script: mv src/android/app/build/outputs/apk/release/app-release-unsigned.apk ReactNativePipeline$(Build.BuildNumber).apk
         displayName: 'Rename apk'
