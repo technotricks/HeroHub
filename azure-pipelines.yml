@@ -21,6 +21,18 @@ jobs:
       - script: yarn install
         displayName: 'Install Node.js dependencies with Yarn'
 
+      - task: JavaToolInstaller@0
+        inputs:
+          versionSpec: '11'
+          jdkArchitectureOption: 'x64'
+          jdkSourceOption: 'PreInstalled'
+
+      - script: |
+          echo "export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 | grep 'java.home' | awk '{print $3}')" >> $BASH_ENV
+          source $BASH_ENV
+          java -version
+        displayName: 'Set JAVA_HOME and Verify Java Version'
+
       - script: |
           java -version
           node -v
