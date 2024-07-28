@@ -38,12 +38,16 @@ steps:
 #     tasks: 'assembleDebug'
 #     options: '-PversionName=$(Build.BuildNumber) -PversionCode=$(Build.BuildId)'
 
-- task: Gradle@3
+    
+   
+- task: Gradle@2
   inputs:
-    gradleWrapperFile: 'gradlew'
-    workingDirectory: 'android/'
-    tasks: 'assembleDebug'
-    publishJUnitResults: false
+    workingDirectory: '$(System.DefaultWorkingDirectory)/android'
+    gradleWrapperFile: '$(System.DefaultWorkingDirectory)/android/gradlew'
+    gradleOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    sonarQubeRunAnalysis: false
-    spotBugsAnalysis: false
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: false
+    tasks: 'assembleDebug'
+  displayName: gradlew assembleDebug
