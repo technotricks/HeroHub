@@ -22,6 +22,7 @@ jobs:
         displayName: 'Install Node.js dependencies with Yarn'
 
       - script: |
+          java -version
           node -v
           yarn -v
           ls -la node_modules/@react-native-community/cli/build

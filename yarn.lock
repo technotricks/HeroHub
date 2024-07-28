@@ -2317,20 +2317,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-community/cli-platform-android@npm:^14.0.0":
-  version: 14.0.0
-  resolution: "@react-native-community/cli-platform-android@npm:14.0.0"
-  dependencies:
-    "@react-native-community/cli-tools": "npm:14.0.0"
-    chalk: "npm:^4.1.2"
-    execa: "npm:^5.0.0"
-    fast-glob: "npm:^3.3.2"
-    fast-xml-parser: "npm:^4.2.4"
-    logkitty: "npm:^0.7.1"
-  checksum: 10c0/0f748e809444a369f71b4954e4e2357fa4c82a005a90107c92b54964d27c42258acf447866955aa76aeafb21008ba9a92b944cc64ce60d8dea53c89e038b9d51
-  languageName: node
-  linkType: hard
-
 "@react-native-community/cli-platform-ios@npm:12.3.6":
   version: 12.3.6
   resolution: "@react-native-community/cli-platform-ios@npm:12.3.6"
@@ -2384,24 +2370,6 @@ __metadata:
     shell-quote: "npm:^1.7.3"
     sudo-prompt: "npm:^9.0.0"
   checksum: 10c0/303a6946ba2c864e387f37762790b994b1283bc8607691af6a01840462f696b282343d4626883a9ca3b7b263ddbe285ebf8399dcbad0141848cdbf547e804076
-  languageName: node
-  linkType: hard
-
-"@react-native-community/cli-tools@npm:14.0.0":
-  version: 14.0.0
-  resolution: "@react-native-community/cli-tools@npm:14.0.0"
-  dependencies:
-    appdirsjs: "npm:^1.2.4"
-    chalk: "npm:^4.1.2"
-    execa: "npm:^5.0.0"
-    find-up: "npm:^5.0.0"
-    mime: "npm:^2.4.1"
-    open: "npm:^6.2.0"
-    ora: "npm:^5.4.1"
-    semver: "npm:^7.5.2"
-    shell-quote: "npm:^1.7.3"
-    sudo-prompt: "npm:^9.0.0"
-  checksum: 10c0/7940b4af353b0b4e520c39fc98a438505fd2850931d2d5ec9395ec3deb7bbb5eb33c3817c5364b0eefa2525be069a4301b0b5073b4bae5867e0253d31f2d5f13
   languageName: node
   linkType: hard
 
@@ -3263,7 +3231,6 @@ __metadata:
     "@babel/preset-env": "npm:^7.20.0"
     "@babel/runtime": "npm:^7.20.0"
     "@react-native-async-storage/async-storage": "npm:^1.19.5"
-    "@react-native-community/cli-platform-android": "npm:^14.0.0"
     "@react-native/babel-preset": "npm:0.73.21"
     "@react-native/eslint-config": "npm:0.73.2"
     "@react-native/metro-config": "npm:0.73.5"
@@ -5196,7 +5163,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.9, fast-glob@npm:^3.3.2":
+"fast-glob@npm:^3.2.9":
   version: 3.3.2
   resolution: "fast-glob@npm:3.3.2"
   dependencies:
