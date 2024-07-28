@@ -1,40 +1,39 @@
-# Node.js
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
 trigger:
-  - master
-
+- infra
 pool:
   vmImage: 'macOS-latest'
+  
 
-jobs:
-  - job: Build_Android
-    displayName: 'Build Android App'
-    steps:
-      - task: UseNode@1
-        inputs:
-          version: '18.x'
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.17.1'
+  displayName: 'Install Node.js'
 
-      - script: |
-          sudo update-alternatives --set java $(update-alternatives --list java | grep java-11)
-          sudo update-alternatives --set javac $(update-alternatives --list javac | grep java-11)
-          java -version
-          javac -version
-        displayName: 'Set Java 11'
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '11'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'PreInstalled'
 
-      - script: |
-          yarn install
-        displayName: 'Install dependencies'
+- script: |
+    brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 
-      - script: |
-          cd android
-          ./gradlew clean assembleRelease
-        displayName: 'Build Android Release'
+    yarn install
+    cd android
+    echo "org.gradle.java.home=$JAVA_HOME" >> ./gradle.properties
+    ls
+  displayName: 'Android Setup Script'
 
-      - task: PublishBuildArtifacts@1
-        inputs:
-          PathtoPublish: 'android/app/build/outputs/apk/release/app-release.apk'
-          ArtifactName: 'android-release-apk'
-          publishLocation: 'Container'
+- task: Gradle@3
+  inputs:
+    workingDirectory: 'android/'
+    gradleWrapperFile: 'android/gradlew'
+    gradleOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: false
+    sonarQubeRunAnalysis: false
+    tasks: 'assembleDebug'
+    options: '-PversionName=$(Build.BuildNumber) -PversionCode=$(Build.BuildId)'
