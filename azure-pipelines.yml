@@ -16,12 +16,18 @@ jobs:
       - script: |
           corepack enable 
           yarn set version stable
-          echo "export NODE_OPTIONS=--max_old_space_size=4096" >> $BASH_ENV
-          source $BASH_ENV
         displayName: 'Pre Dependancy'
 
       - script: yarn install
         displayName: 'Install Node.js dependencies with Yarn'
+
+      - script: |
+          node -v
+          yarn -v
+          ls -la node_modules/@react-native-community/cli/build
+          ls -la node_modules/@react-native-community/cli-platform-android
+          ls -la node_modules
+        displayName: 'Verify Node.js, Yarn, and Dependencies'
 
       - script: |
           cd android
