@@ -3,65 +3,33 @@ trigger:
 pool:
   vmImage: 'macOS-latest'
   
+jobs:
+- job: Build
+  displayName: 'Build Android Debug'
 
-steps:
-- script: |
-    echo $(System.DefaultWorkingDirectory)
-  displayName: 'Print'
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '21.6.2'
+    displayName: 'Install Node.js'
 
-- task: Gradle@2
-  inputs:
-    workingDirectory: 'android'
-    gradleWrapperFile: 'android/gradlew'
-    gradleOptions: '-Xmx3072m'
-    publishJUnitResults: false
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: 'assembleDebug'
-  displayName: gradlew assembleDebug
-  
-# - task: NodeTool@0
-#   inputs:
-#     versionSpec: '16.17.1'
-#   displayName: 'Install Node.js'
+  - script: yarn install
+    displayName: 'Install Node.js dependencies with Yarn'
 
-# - task: JavaToolInstaller@0
-#   inputs:
-#     versionSpec: '11'
-#     jdkArchitectureOption: 'x64'
-#     jdkSourceOption: 'PreInstalled'
+  - script: yarn cache clean
+    displayName: 'Clean Yarn cache'
 
-# - script: |
-#     brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
+  - task: Gradle@2
+    inputs:
+      gradleWrapperFile: 'android/gradlew'
+      options: 'clean'
+      tasks: 'clean'
+    displayName: 'Clean Gradle cache'
 
-#     yarn install
-#     cd android
-#     echo "org.gradle.java.home=$JAVA_HOME" >> ./gradle.properties
-#     ls
-#   displayName: 'Android Setup Script'
-
-# - task: Gradle@3
-#   inputs:
-#     workingDirectory: 'android/'
-#     gradleWrapperFile: 'android/gradlew'
-#     gradleOptions: '-Xmx3072m'
-#     javaHomeOption: 'JDKVersion'
-#     jdkVersionOption: '1.8'
-#     jdkArchitectureOption: 'x64'
-#     publishJUnitResults: false
-#     sonarQubeRunAnalysis: false
-#     tasks: 'assembleDebug'
-#     options: '-PversionName=$(Build.BuildNumber) -PversionCode=$(Build.BuildId)'
-
-    
-   
-# - task: Gradle@2
-#   inputs:
-#     workingDirectory: '$(System.DefaultWorkingDirectory)/android'
-#     gradleWrapperFile: '$(System.DefaultWorkingDirectory)/android/gradlew'
-#     gradleOptions: '-Xmx3072m'
-#     javaHomeOption: 'JDKVersion'
-#     jdkVersionOption: '1.8'
-#     jdkArchitectureOption: 'x64'
-#     publishJUnitResults: false
-#     tasks: 'assembleDebug'
-#   displayName: gradlew assembleDebug
+  - task: Gradle@2
+    inputs:
+      gradleWrapperFile: 'android/gradlew'
+      options: '--stacktrace --info'
+      tasks: 'assembleDebug'
+      workingDirectory: 'android'
+    displayName: 'Build Android Debug APK'
