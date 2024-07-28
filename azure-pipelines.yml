@@ -50,6 +50,11 @@ jobs:
           workingDirectory: 'android'
         displayName: 'Build Android Debug APK'
 
+      - script: |
+          echo "Build output files:"
+          ls -R android/app/build/outputs/
+        displayName: 'List Build Outputs'
+
       - task: PublishBuildArtifacts@1
         inputs:
           PathtoPublish: android/app/build/outputs/apk/debug'
