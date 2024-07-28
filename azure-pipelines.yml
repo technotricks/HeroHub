@@ -8,6 +8,17 @@ steps:
 - script: |
     echo $(System.DefaultWorkingDirectory)
   displayName: 'Print'
+
+- task: Gradle@2
+  inputs:
+    workingDirectory: 'android'
+    gradleWrapperFile: 'android/gradlew'
+    gradleOptions: '-Xmx3072m'
+    publishJUnitResults: false
+    testResultsFiles: '**/TEST-*.xml'
+    tasks: 'assembleDebug'
+  displayName: gradlew assembleDebug
+  
 # - task: NodeTool@0
 #   inputs:
 #     versionSpec: '16.17.1'
