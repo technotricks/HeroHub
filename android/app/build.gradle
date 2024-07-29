@@ -75,6 +75,10 @@ android {
     compileSdk rootProject.ext.compileSdkVersion
 
     namespace "com.herohub"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
     defaultConfig {
         applicationId "com.herohub"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -89,6 +93,14 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        // release {
+        //     if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+        //         storeFile file(MYAPP_UPLOAD_STORE_FILE)
+        //         storePassword MYAPP_UPLOAD_STORE_PASSWORD
+        //         keyAlias MYAPP_UPLOAD_KEY_ALIAS
+        //         keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+        //     }
+        // }
     }
     buildTypes {
         debug {
