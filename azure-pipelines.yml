@@ -4,8 +4,9 @@ pool:
   vmImage: 'macOS-latest'
 
 variables:
-  YARN_CACHE_FOLDER: $(Pipeline.Workspace)/s/.yarn
-  GRADLE_USER_HOME: $(Pipeline.Workspace)/.gradle
+  - group: HeroRelease
+    # YARN_CACHE_FOLDER: $(Pipeline.Workspace)/s/.yarn
+    # GRADLE_USER_HOME: $(Pipeline.Workspace)/.gradle
 
 
 steps:
