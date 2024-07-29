@@ -42,26 +42,34 @@ jobs:
           ls -la node_modules
         displayName: 'Verify Node.js, Yarn, and Dependencies'
 
-      - task: Gradle@2
+      # - task: Gradle@2
+      #   inputs:
+      #     gradleWrapperFile: 'android/gradlew'
+      #     options: '--stacktrace --info'
+      #     tasks: 'assembleDebug'
+      #     workingDirectory: 'android'
+      #   displayName: 'Build Android Debug APK'
+      - task: AndroidSigning@3
+        displayName: 'Sign APK'
         inputs:
-          gradleWrapperFile: 'android/gradlew'
-          options: '--stacktrace --info'
-          tasks: 'assembleDebug'
-          workingDirectory: 'android'
-        displayName: 'Build Android Debug APK'
+          apkFiles: 'android/app/build/outputs/apk/release/*.apk'
+          apksignerKeystoreFile: 'hero_release.keystore'
+          apksignerKeystorePassword: '$(AndroidKeyStorePassword)'
+          apksignerKeystoreAlias: '$(AndroidKeyAlias)'
+          apksignerKeyPassword: '$(AndroidKeyAliasPassword)'
 
       - script: |
           echo "Build output files:"
           ls -R android/app/build/outputs/
         displayName: 'List Build Outputs'
 
-      - script: mv android/app/build/outputs/apk/debug/app-debug.apk ReactNativePipeline$(Build.BuildNumber).apk
-        displayName: 'Rename apk'
+      # - script: mv android/app/build/outputs/apk/debug/app-debug.apk ReactNativePipeline$(Build.BuildNumber).apk
+      #   displayName: 'Rename apk'
 
       - task: PublishBuildArtifacts@1
         inputs:
-          PathtoPublish: ReactNativePipeline$(Build.BuildNumber).apk
-          ArtifactName: 'drop'
+          PathtoPublish: 'android/app/build/outputs/apk/release'
+          ArtifactName: 'android'
           publishLocation: 'Container'
         displayName: 'Publish APK to artifacts'
 
