@@ -9,36 +9,36 @@ variables:
 
 
 steps:
-  - task: Cache@2
-    inputs:
-      key: 'yarn | "$(Agent.OS)" | yarn.lock'
-      restoreKeys: |
-        yarn | "$(Agent.OS)"
-        yarn
-      path: $(YARN_CACHE_FOLDER)
-    displayName: 'Cache Yarn packages'
+  # - task: Cache@2
+  #   inputs:
+  #     key: 'yarn | "$(Agent.OS)" | yarn.lock'
+  #     restoreKeys: |
+  #       yarn | "$(Agent.OS)"
+  #       yarn
+  #     path: $(YARN_CACHE_FOLDER)
+  #   displayName: 'Cache Yarn packages'
 
-  - task: Cache@2
-    inputs:
-      key: 'node-modules | "$(Agent.OS)" | yarn.lock'
-      restoreKeys: |
-        node-modules | "$(Agent.OS)"
-        node-modules
-      path: node_modules
-    displayName: 'Cache Node.js modules'
+  # - task: Cache@2
+  #   inputs:
+  #     key: 'node-modules | "$(Agent.OS)" | yarn.lock'
+  #     restoreKeys: |
+  #       node-modules | "$(Agent.OS)"
+  #       node-modules
+  #     path: node_modules
+  #   displayName: 'Cache Node.js modules'
 
 
-  - task: Cache@2
-    inputs:
-      key: 'gradle | "$(Agent.OS)" | gradle-wrapper.properties'
-      restoreKeys: |
-        gradle | "$(Agent.OS)"
-        gradle
-      path: $(GRADLE_USER_HOME)
-    displayName: 'Cache Gradle dependencies'
+  # - task: Cache@2
+  #   inputs:
+  #     key: 'gradle | "$(Agent.OS)" | gradle-wrapper.properties'
+  #     restoreKeys: |
+  #       gradle | "$(Agent.OS)"
+  #       gradle
+  #     path: $(GRADLE_USER_HOME)
+  #   displayName: 'Cache Gradle dependencies'
 
-  - script: yarn --frozen-lockfile
-    displayName: 'Install Yarn dependencies'
+  # - script: yarn --frozen-lockfile
+  #   displayName: 'Install Yarn dependencies'
 
 
   - task: NodeTool@0
