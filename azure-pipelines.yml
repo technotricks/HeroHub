@@ -3,11 +3,26 @@ trigger:
 pool:
   vmImage: 'macOS-latest'
 
+variables:
+  YARN_CACHE_FOLDER: $(Pipeline.Workspace)/s/.yarn
+
 jobs:
   - job: Build
     displayName: 'Build Android Debug'
+    
 
     steps:
+      - task: Cache@2
+        inputs:
+          key: '"yarn" | "$(Agent.OS)" | yarn.lock'
+          restoreKeys: |
+            "yarn" | "$(Agent.OS)"
+            "yarn"
+          path: $(YARN_CACHE_FOLDER)
+        displayName: Cache Yarn packages
+
+      - script: yarn --frozen-lockfile
+      
       - task: NodeTool@0
         inputs:
           versionSpec: '21.6.2'
