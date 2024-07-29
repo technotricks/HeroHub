@@ -42,13 +42,14 @@ jobs:
           ls -la node_modules
         displayName: 'Verify Node.js, Yarn, and Dependencies'
 
-      # - task: Gradle@2
-      #   inputs:
-      #     gradleWrapperFile: 'android/gradlew'
-      #     options: '--stacktrace --info'
-      #     tasks: 'assembleDebug'
-      #     workingDirectory: 'android'
-      #   displayName: 'Build Android Debug APK'
+      - task: Gradle@2
+        inputs:
+          gradleWrapperFile: 'android/gradlew'
+          options: '--stacktrace --info'
+          tasks: 'assembleRelease'
+          workingDirectory: 'android'
+        displayName: 'Build Android Debug APK'
+
       - task: AndroidSigning@3
         displayName: 'Sign APK'
         inputs:
