@@ -55,9 +55,9 @@ jobs:
         inputs:
           apkFiles: 'android/app/build/outputs/apk/release/*.apk'
           apksignerKeystoreFile: 'hero_release.keystore'
-          apksignerKeystorePassword: '$(AndroidKeyStorePassword)'
-          apksignerKeystoreAlias: '$(AndroidKeyAlias)'
-          apksignerKeyPassword: '$(AndroidKeyAliasPassword)'
+          apksignerKeystorePassword: '$(ANDROID_STORE_PASSWORD)'
+          apksignerKeystoreAlias: '$(ANDROID_KEY_ALIAS)'
+          apksignerKeyPassword: '$(ANDROID_KEY_PASSWORD)'
 
       - script: |
           echo "Build output files:"
