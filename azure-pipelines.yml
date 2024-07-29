@@ -5,109 +5,127 @@ pool:
 
 variables:
   YARN_CACHE_FOLDER: $(Pipeline.Workspace)/s/.yarn
+  GRADLE_USER_HOME: $(Pipeline.Workspace)/.gradle
 
-jobs:
-  - job: Build
-    displayName: 'Build Android Debug'
-    
 
-    steps:
-      - task: Cache@2
-        inputs:
-          key: '"yarn" | "$(Agent.OS)" | yarn.lock'
-          restoreKeys: |
-            "yarn" | "$(Agent.OS)"
-            "yarn"
-          path: $(YARN_CACHE_FOLDER)
-        displayName: Cache Yarn packages
+steps:
+  - task: Cache@2
+    inputs:
+      key: 'yarn | "$(Agent.OS)" | yarn.lock'
+      restoreKeys: |
+        yarn | "$(Agent.OS)"
+        yarn
+      path: $(YARN_CACHE_FOLDER)
+    displayName: 'Cache Yarn packages'
 
-      - script: yarn --frozen-lockfile
-      
-      - task: NodeTool@0
-        inputs:
-          versionSpec: '21.6.2'
-        displayName: 'Install Node.js'
+  - task: Cache@2
+    inputs:
+      key: 'node-modules | "$(Agent.OS)" | yarn.lock'
+      restoreKeys: |
+        node-modules | "$(Agent.OS)"
+        node-modules
+      path: node_modules
+    displayName: 'Cache Node.js modules'
 
-      - script: |
-          corepack enable 
-          yarn set version stable
-        displayName: 'Pre Dependancy'
 
-      - script: yarn install
-        displayName: 'Install Node.js dependencies with Yarn'
+  - task: Cache@2
+    inputs:
+      key: 'gradle | "$(Agent.OS)" | gradle-wrapper.properties'
+      restoreKeys: |
+        gradle | "$(Agent.OS)"
+        gradle
+      path: $(GRADLE_USER_HOME)
+    displayName: 'Cache Gradle dependencies'
 
-      - task: JavaToolInstaller@0
-        inputs:
-          versionSpec: '17'
-          jdkArchitectureOption: 'x64'
-          jdkSourceOption: 'PreInstalled'
+  - script: yarn --frozen-lockfile
+    displayName: 'Install Yarn dependencies'
 
-      - script: |
-          echo "export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 | grep 'java.home' | awk '{print $3}')" >> $BASH_ENV
-          source $BASH_ENV
-          java -version
-        displayName: 'Set JAVA_HOME and Verify Java Version'
 
-      - script: |
-          java -version
-          node -v
-          yarn -v
-          ls -la node_modules/@react-native-community/cli/build
-          ls -la node_modules/@react-native-community/cli-platform-android
-          ls -la node_modules
-        displayName: 'Verify Node.js, Yarn, and Dependencies'
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '21.6.2'
+    displayName: 'Install Node.js'
 
-      - task: Gradle@2
-        inputs:
-          gradleWrapperFile: 'android/gradlew'
-          options: '--stacktrace --info'
-          tasks: 'assembleRelease'
-          workingDirectory: 'android'
-        displayName: 'Build Android Debug APK'
+  - script: |
+      corepack enable 
+      yarn set version stable
+    displayName: 'Pre Dependancy'
 
-      - task: AndroidSigning@3
-        displayName: 'Sign APK'
-        inputs:
-          apkFiles: 'android/app/build/outputs/apk/release/*.apk'
-          apksignerKeystoreFile: 'hero_release.keystore'
-          apksignerKeystorePassword: '$(ANDROID_STORE_PASSWORD)'
-          apksignerKeystoreAlias: '$(ANDROID_KEY_ALIAS)'
-          apksignerKeyPassword: '$(ANDROID_KEY_PASSWORD)'
+  - script: yarn install
+    displayName: 'Install Node.js dependencies with Yarn'
 
-      - script: |
-          echo "Build output files:"
-          ls -R android/app/build/outputs/
-        displayName: 'List Build Outputs'
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: '17'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'
 
-      # - script: mv android/app/build/outputs/apk/debug/app-debug.apk ReactNativePipeline$(Build.BuildNumber).apk
-      #   displayName: 'Rename apk'
+  - script: |
+      echo "export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 | grep 'java.home' | awk '{print $3}')" >> $BASH_ENV
+      source $BASH_ENV
+      java -version
+    displayName: 'Set JAVA_HOME and Verify Java Version'
 
-      - task: PublishBuildArtifacts@1
-        inputs:
-          PathtoPublish: 'android/app/build/outputs/apk/release'
-          ArtifactName: 'android'
-          publishLocation: 'Container'
-        displayName: 'Publish APK to artifacts'
+  - script: |
+      java -version
+      node -v
+      yarn -v
+      ls -la node_modules/@react-native-community/cli/build
+      ls -la node_modules/@react-native-community/cli-platform-android
+      ls -la node_modules
+    displayName: 'Verify Node.js, Yarn, and Dependencies'
 
-      # - task: PublishBuildArtifacts@1
-      #   inputs:
-      #     PathtoPublish: ReactNativePipeline$(Build.BuildNumber).apk
-      #     artifactName: drop
-      #     publishLocation: 'container'
+  - task: Gradle@2
+    inputs:
+      gradleWrapperFile: 'android/gradlew'
+      options: '--stacktrace --info'
+      tasks: 'assembleRelease'
+      workingDirectory: 'android'
+    displayName: 'Build Android Debug APK'
 
-      # - script: |
-      #     cd android
-      #     ls
-      #     pwd
-      #     ./gradlew assembleDebug
-      #   displayName: 'Android Build'
+  - task: AndroidSigning@3
+    displayName: 'Sign APK'
+    inputs:
+      apkFiles: 'android/app/build/outputs/apk/release/*.apk'
+      apksignerKeystoreFile: 'hero_release.keystore'
+      apksignerKeystorePassword: '$(ANDROID_STORE_PASSWORD)'
+      apksignerKeystoreAlias: '$(ANDROID_KEY_ALIAS)'
+      apksignerKeyPassword: '$(ANDROID_KEY_PASSWORD)'
 
-    # - script: pwd
-    #   displayName: 'Current directory'
+  - script: |
+      echo "Build output files:"
+      ls -R android/app/build/outputs/
+    displayName: 'List Build Outputs'
 
-    # - task: Gradle@2
-    #   inputs:
-    #     gradleWrapperFile: 'android/gradlew'
-    #     options: 'clean'
-    #     tasks: 'clean'
-    #   displayName: 'Clean Gradle cache'
+  # - script: mv android/app/build/outputs/apk/debug/app-debug.apk ReactNativePipeline$(Build.BuildNumber).apk
+  #   displayName: 'Rename apk'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: 'android/app/build/outputs/apk/release'
+      ArtifactName: 'android'
+      publishLocation: 'Container'
+    displayName: 'Publish APK to artifacts'
+
+  # - task: PublishBuildArtifacts@1
+  #   inputs:
+  #     PathtoPublish: ReactNativePipeline$(Build.BuildNumber).apk
+  #     artifactName: drop
+  #     publishLocation: 'container'
+
+  # - script: |
+  #     cd android
+  #     ls
+  #     pwd
+  #     ./gradlew assembleDebug
+  #   displayName: 'Android Build'
+
+# - script: pwd
+#   displayName: 'Current directory'
+
+# - task: Gradle@2
+#   inputs:
+#     gradleWrapperFile: 'android/gradlew'
+#     options: 'clean'
+#     tasks: 'clean'
+#   displayName: 'Clean Gradle cache'
