@@ -7,8 +7,6 @@ import React from 'react';
 import App from '../src/App';
 
 // Note: import explicitly to use the types shipped with jest.
-import {NavigationContainer} from '@react-navigation/native';
-
 // Note: test renderer must be required after react-native.
 import {render} from '@/testUtils/testUtils';
 import ApplicationNavigator from './navigators/Application';
